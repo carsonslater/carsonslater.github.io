@@ -1,5 +1,5 @@
 # Carson Slater's Fall 2022 Portfolio
-#*Forecasting FMCG Demand Using Generalized Additive Models*
+# *Forecasting FMCG Demand Using Generalized Additive Models*
 
 ### Adviser: [Dr. Ying Li]{https://github.com/yingli}
 
