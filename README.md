@@ -1,4 +1,4 @@
-# Carson Slater's Fall 2022 Portfolio
+![image](IMG_3416.JPG)
 # *Forecasting FMCG Demand Using Generalized Additive Models*
 
 ### Adviser: [Dr. Ying Li](https://github.com/yingli)
@@ -8,24 +8,21 @@ Click [here](https://github.com/carsonslater/mentored_research2022) to go to the
 ### Poster:
 <iframe width="100%" height="400" src="Poster_Project_draft3.pdf">
 
+# *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
-<div class="about-section">
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
-</div>
+### Collaborators
+  - [Owen Wagner](https://github.com/ofwagner19)
+  - [Ryan Colburn](https://github.com/colbu070)
 
-<h2 style="text-align:center">Meet Carson</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="IMG_3416.JPG" alt="Carson" style="width:100%">
-      <div class="container">
-        <h2>Carson Slater/h2>
-        <p class="title">About </p>
-        <p>Howdy! I am a senior at Wheaton College (IL) studying Mathematics and Economics. I am hoping to pursue a Ph.D in Statistics and Biostatistcs. I am really interested in machine mearning algorithms and their applications. I believe statistics is a powerful tool that can be wielded for good, but can also cause harm. I hope to use statistics as a means to love and serve my neighbor.</p>
-        <p>carson.slater@my.wheaton.edu</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
+### Advisers: 
+  - [Dr. Sujit Ghosh](https://www4.stat.ncsu.edu/~ghosh/)
+  - [Dr. Megan Neely](https://statistics.sciences.ncsu.edu/people/hmmcgowa/)
+  - [Dr. Megan Neely](https://scholars.duke.edu/person/megan.neely)
+
+Click [here](https://github.com/carsonslater/sibs_summer2022) to go to the project repository.
+
+### Poster:
+<iframe width="100%" height="400" src="SIBS_powerpoint.pdf">
+  
+*Thanks for visiting my page! More projects to come!* 
+
