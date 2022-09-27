@@ -21,7 +21,7 @@ Click [here](https://github.com/carsonslater/mentored_research2022) to go to the
 
 Click [here](https://github.com/carsonslater/sibs_summer2022) to go to the project repository.
 
-### Poster:
+### Presentation:
 <iframe width="100%" height="400" src="SIBS_powerpoint.pdf">
   
 *Thanks for visiting my page! More projects to come!* 
