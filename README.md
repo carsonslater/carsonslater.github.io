@@ -16,7 +16,7 @@ Click [here](https://github.com/carsonslater/mentored_research2022) to go to the
 
 ### Advisers: 
   - [Dr. Sujit Ghosh](https://www4.stat.ncsu.edu/~ghosh/)
-  - [Dr. Megan Neely](https://statistics.sciences.ncsu.edu/people/hmmcgowa/)
+  - [Dr. Herle Mcgowan](https://statistics.sciences.ncsu.edu/people/hmmcgowa/)
   - [Dr. Megan Neely](https://scholars.duke.edu/person/megan.neely)
 
 Click [here](https://github.com/carsonslater/sibs_summer2022) to go to the project repository.
