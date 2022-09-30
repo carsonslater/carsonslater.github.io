@@ -5,9 +5,6 @@
 
 Click [here](https://github.com/carsonslater/mentored_research2022) to go to the project repository.
 
-### Poster:
-<iframe width="100%" height="400" src="Poster_Project_draft3.pdf">
-
 # *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
 ### Collaborators
