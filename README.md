@@ -1,9 +1,4 @@
 ![image](IMG_3416.JPG)
-# *Forecasting FMCG Demand Using Generalized Additive Models*
-
-### Adviser: [Dr. Ying Li](https://github.com/yingli)
-
-Click [here](https://github.com/carsonslater/mentored_research2022) to go to the project repository.
 
 # *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
@@ -17,12 +12,14 @@ Click [here](https://github.com/carsonslater/mentored_research2022) to go to the
   - [Dr. Megan Neely](https://scholars.duke.edu/person/megan.neely)
 
 Click [here](https://github.com/carsonslater/sibs_summer2022) to go to the project repository.
+Click [here](SIBS_powerpoint.pdf) to see our Beamer presentation.
+
+# *Forecasting FMCG Demand Using Generalized Additive Models*
+
+### Adviser: [Dr. Ying Li](https://github.com/yingli)
+
+Click [here](https://github.com/carsonslater/mentored_research2022) to go to the project repository.
 
 ### Poster:
 <iframe width="100%" height="400" src="Poster_Project_draft3.pdf">
-
-### Presentation:
-<iframe width="100%" height="400" src="SIBS_powerpoint.pdf">
-  
-*Thanks for visiting my page! More projects to come!* 
 
