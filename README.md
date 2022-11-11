@@ -21,5 +21,5 @@ Click [here](SIBS_powerpoint.pdf) to see our Beamer presentation.
 Click [here](https://github.com/carsonslater/mentored_research2022) to go to the project repository.
 
 ### Poster:
-<iframe width="100%" height="400" src="Poster_Project_draft3.pdf">
+<iframe width="100%" height="400" src="Poster_Project_Iteration2_Final.pdf">
 
