@@ -22,6 +22,8 @@ Click [here](SIBS_powerpoint.pdf) to see our Beamer presentation.
 
 Click [here](https://github.com/carsonslater/mentored_research2022) to go to the project repository.
 
+I had the amazing opportunity to present this poster at the [2022 University of Illinois-Chicago's Undergraduate Mathematics Symposium](https://homepages.math.uic.edu/ums/)!
+
 ### Poster:
 <iframe width="100%" height="400" src="Poster_Project_Iteration2_Final.pdf">
 
