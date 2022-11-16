@@ -16,7 +16,7 @@ Click [here](CarsonSlaterResume_Stats.pdf) to see my Resumé!
 Click [here](https://github.com/carsonslater/sibs_summer2022) to go to the project repository.
 Click [here](SIBS_powerpoint.pdf) to see our Beamer presentation.
 
-# *Forecasting FMCG Demand Using Generalized Additive Models*
+# *Forecasting FMCG Demand Using Generalized Additive Models (Fall 2022)*
 
 ### Adviser: [Dr. Ying Li](https://github.com/yingli)
 
