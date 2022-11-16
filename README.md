@@ -1,6 +1,4 @@
-![image](IMG_3416.JPG)
-
-<img src="IMG_3416.JPG" alt="portrait" width="600"/>
+<img src="IMG_3416.JPG" alt="portrait" width="1000"/>
 
 Click [here](CarsonSlaterResume_Stats.pdf) to see my Resumé!
 
