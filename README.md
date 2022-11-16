@@ -1,6 +1,4 @@
-![image](IMG_3416.JPG)
-
-[CarsonSlaterResume_Stats.pdf](https://github.com/carsonslater/portfolio2022/files/10018157/CarsonSlaterResume_Stats.pdf)
+Click [here](https://github.com/carsonslater/portfolio2022/files/10018157/CarsonSlaterResume_Stats.pdf) to see my Resumé!
 
 # *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
