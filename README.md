@@ -1,6 +1,6 @@
 <img src="IMG_3416.JPG" alt="portrait" width="600"/>
 
-Click [here](CarsonSlaterResume_Stats.pdf) to see my Resumé!
+Click [here](Slater_Stats_Resume.pdf) to see my Resumé!
 
 # *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
