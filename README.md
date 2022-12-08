@@ -2,6 +2,11 @@
 
 Click [here](Slater_Stats_Resume.pdf) to see my Resumé!
 
+# *Numerical Analysis Final Presentation*
+
+  - Click [here](MATH_485_Presentation.pdf) to see the Beamer presentation I gave in class on December 9, 2022.
+  - Click [here](https://colab.research.google.com/drive/1JUVUG1NihQaMI1XaitswV6UoGUTtZjLZ?usp=sharing) to see the code used to generate the plots.
+
 # *2022 Duke/NCSU Summer Institute for Biostatistics Hackathon*
   
 ### Collaborators
