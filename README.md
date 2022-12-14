@@ -1,6 +1,6 @@
 <img src="IMG_3416.JPG" alt="portrait" width="600"/>
 
-Click [here](Slater_Stats_Resume.pdf) to see my Resumé!
+Click [here](Slater_Stats_PhD_Updated_Resume.pdf) to see my Resumé!
 
 # *Numerical Analysis Final Presentation*
 
