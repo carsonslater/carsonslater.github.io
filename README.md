@@ -1,4 +1,4 @@
-<img src="CarsonSlater.jpeg" alt="drawing" width="400" class="center">
+<img src="IMG_9550.heic" alt="drawing" width="600" class="center">
 
 Click [here](Slater_Stats_Resume.pdf) to see my Resumé!
 
