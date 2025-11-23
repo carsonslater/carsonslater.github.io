@@ -1,0 +1,7 @@
+---
+title: "Curriculum Vitae"
+---
+
+<iframe width="100%" height="800" src="files/Slater_Stats_Resume.pdf"></iframe>
+
+[Download CV](files/Slater_Stats_Resume.pdf)

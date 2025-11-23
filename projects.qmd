@@ -1,0 +1,36 @@
+---
+title: "Projects"
+listing:
+  contents:
+    - title: "Assessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles"
+      description: "This paper employs statistical methods to do pairwise comparisons when ANOVA assumptions are egregiously violated."
+      image: images/projects/greyscale_ridgesv3.png
+      categories: [Nanoparticle Bacterial Inhibition, Ordinal Regression, Generalized Linear Mixed Models]
+      path: https://www.mdpi.com/2079-4983/16/3/113
+    - title: "Assessing Interference with Regression Analysis Techniques"
+      description: "This work proposes using regression analysis to predict aggregate interference in next-generation Dynamic Spectrum Access (DSA) systems."
+      image: images/projects/agg_interference_diagram.png
+      categories: [Dynamic Spectrum Access, Generalized Additive Models]
+      path: https://ieeexplore.ieee.org/document/10619025
+    - title: "Mo(Wa)²TER Introduction to Data Science Course Material"
+      description: "We used problems in water and wastewater treatment to create a data science course."
+      image: images/projects/mowtr_hex.png
+      categories: [Data Science, R/RStudio, Wastewater Treatment]
+      path: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E
+    - title: "Cobalt Theme for Positron"
+      description: "A dark theme based on the Cobalt RStudio theme for Positron (and VS Code)."
+      image: images/projects/cobalt.png
+      categories: [Positron]
+      path: https://github.com/carsonslater/cobaltpositron
+    - title: "giftR"
+      description: "A white elephant gift exchange facilitator."
+      image: images/projects/giftR.png
+      categories: [R Package]
+      path: https://github.com/carsonslater/giftR
+  type: default
+  categories: true
+---
+
+## Research & Development
+
+Below are some of the projects I have worked on.

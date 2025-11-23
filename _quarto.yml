@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Carson Slater"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/carsonslater
+      - icon: linkedin
+        href: https://www.linkedin.com/in/carsonslateratbaylor/
+      - icon: instagram
+        href: https://www.instagram.com/slatercarson/
+      - icon: envelope
+        href: mailto:carson_slater1@baylor.edu
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
