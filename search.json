@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Motivated graduate student seeking consulting opportunities. Aspiring applied statistician who loves to use statistical methods to empower people with insights for good stewardship.\n\n\n\n\n\n\nPaper\n\nUsed ordinal regression and generalized linear models to understand relationships between nanoparticle coatings and bacterial inhibition.\n\n\n\n\nPaper\n\nUsed generalized additive models to predict pairwise interference in a Dynamic Spectrum Access context.\nPresented at the 2024 IEEE Texas Symposium on Wireless and Microwave Circuits and Systems (WMCS).\n\n\n\n\n\n\n\n\nHarvard Dataverse\n\nEdited and compiled material with Dr. Mandy Hering on her contributions to the NSF HDR–Data Science Corps project (Grant #1924146).\n\n\n\n\nGitHub\n\nBuilt forecasting models to predict quantity demanded for fast-moving consumer goods in Indonesia.\nPresented poster at UIC’s 2022 Undergraduate Mathematics Symposium and the 2022 Wheaton College Homecoming STEM Poster Session.\n\n\n\n\n\nConducted variable selection using the Lahman baseball database to model ERA using regression analysis.\nBuilt a single-layer neural network and radial SVR model in R.\n\n\n\n\n\n\nPhD, Statistical Science — Baylor University, Waco, TX (2024–Pending)\nM.S., Statistical Science — Baylor University, Waco, TX (2023–2024) GPA: 3.75/4.0\nB.S., Applied Mathematics with Statistics; B.A., Economics — Wheaton College (2019–2023) Edman Presidential Scholarship GPA: 3.46/4.0\n\n\n\n\nSoftware Tools: Docker, RStudio, Git/GitHub, reveal.js, Positron Software Languages: R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JavaScript, CSS, HTML Relevant Coursework: Bayesian Methods, Survival Analysis, Time Series, Theory of Statistics, Statistical Methods, Computational Statistics, Numerical Analysis, Linear Algebra for Data Analysis, Mathematical Statistics, Machine Learning, Probability Theory, Real Analysis, Harvard’s CS Introduction, Econometrics, Economics of Labor and Poverty\n\n\n\n\n\n\n\nConducts research with Dr. Mandy Hering with collaborators in urban water treatment and infrastructure.\n\n\n\n\n\nCollaborated in the Statistical Consulting Center on interdisciplinary research.\nTA for Computational Statistics (STA 4373/5373/6375).\nLed four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).\n\n\n\n\n\nTaught and reviewed mathematics with students ranging from Algebra I to AP Statistics.\n\n\n\n\n\nTA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).\nGraded weekly assignments and hosted help sessions.\n\n\n\n\n\nParticipated in biostatistics coursework at Duke Clinical Research Institute and NC State.\nCompleted a hackathon on myocardial infarction modeling. GitHub\n\n\n\n\n\n\n\n\n\nBuilt a blog to keep supporters updated on mission work.\nTaught English and sports in schools and at camps; supported local CB churches.\nTrained incoming short-term mission teams.\n\n\n\n\n\n\n\n\n\nPracticed six days a week and played 40+ games per season.\n\n\n\n\n\nAwarded to one senior exemplifying Christ-like character, integrity, and passion for the gospel.\n\n\nIf you want this styled (e.g., two-column layout, icons, colors, spacing), I can generate a fully designed Quarto CV page as well."
+  },
+  {
+    "objectID": "cv.html#summary",
+    "href": "cv.html#summary",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Motivated graduate student seeking consulting opportunities. Aspiring applied statistician who loves to use statistical methods to empower people with insights for good stewardship."
+  },
+  {
+    "objectID": "cv.html#papers",
+    "href": "cv.html#papers",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Paper\n\nUsed ordinal regression and generalized linear models to understand relationships between nanoparticle coatings and bacterial inhibition.\n\n\n\n\nPaper\n\nUsed generalized additive models to predict pairwise interference in a Dynamic Spectrum Access context.\nPresented at the 2024 IEEE Texas Symposium on Wireless and Microwave Circuits and Systems (WMCS)."
+  },
+  {
+    "objectID": "cv.html#projects",
+    "href": "cv.html#projects",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Harvard Dataverse\n\nEdited and compiled material with Dr. Mandy Hering on her contributions to the NSF HDR–Data Science Corps project (Grant #1924146).\n\n\n\n\nGitHub\n\nBuilt forecasting models to predict quantity demanded for fast-moving consumer goods in Indonesia.\nPresented poster at UIC’s 2022 Undergraduate Mathematics Symposium and the 2022 Wheaton College Homecoming STEM Poster Session.\n\n\n\n\n\nConducted variable selection using the Lahman baseball database to model ERA using regression analysis.\nBuilt a single-layer neural network and radial SVR model in R."
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "PhD, Statistical Science — Baylor University, Waco, TX (2024–Pending)\nM.S., Statistical Science — Baylor University, Waco, TX (2023–2024) GPA: 3.75/4.0\nB.S., Applied Mathematics with Statistics; B.A., Economics — Wheaton College (2019–2023) Edman Presidential Scholarship GPA: 3.46/4.0"
+  },
+  {
+    "objectID": "cv.html#skills",
+    "href": "cv.html#skills",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Software Tools: Docker, RStudio, Git/GitHub, reveal.js, Positron Software Languages: R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JavaScript, CSS, HTML Relevant Coursework: Bayesian Methods, Survival Analysis, Time Series, Theory of Statistics, Statistical Methods, Computational Statistics, Numerical Analysis, Linear Algebra for Data Analysis, Mathematical Statistics, Machine Learning, Probability Theory, Real Analysis, Harvard’s CS Introduction, Econometrics, Economics of Labor and Poverty"
+  },
+  {
+    "objectID": "cv.html#employment",
+    "href": "cv.html#employment",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Conducts research with Dr. Mandy Hering with collaborators in urban water treatment and infrastructure.\n\n\n\n\n\nCollaborated in the Statistical Consulting Center on interdisciplinary research.\nTA for Computational Statistics (STA 4373/5373/6375).\nLed four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).\n\n\n\n\n\nTaught and reviewed mathematics with students ranging from Algebra I to AP Statistics.\n\n\n\n\n\nTA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).\nGraded weekly assignments and hosted help sessions.\n\n\n\n\n\nParticipated in biostatistics coursework at Duke Clinical Research Institute and NC State.\nCompleted a hackathon on myocardial infarction modeling. GitHub"
+  },
+  {
+    "objectID": "cv.html#volunteer",
+    "href": "cv.html#volunteer",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Built a blog to keep supporters updated on mission work.\nTaught English and sports in schools and at camps; supported local CB churches.\nTrained incoming short-term mission teams."
+  },
+  {
+    "objectID": "cv.html#honors-awards",
+    "href": "cv.html#honors-awards",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Practiced six days a week and played 40+ games per season.\n\n\n\n\n\nAwarded to one senior exemplifying Christ-like character, integrity, and passion for the gospel.\n\n\nIf you want this styled (e.g., two-column layout, icons, colors, spacing), I can generate a fully designed Quarto CV page as well."
+  },
+  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
@@ -47,12 +110,5 @@
     "title": "Carson Slater",
     "section": "Experience",
     "text": "Experience\nGraduate Assistant | Baylor University Aug 2023 - Present\n\nCurrently, I am a research assistant with Dr. Mandy Hering where we collaborate with a utility for a Major US city.\nI consulted at Baylor University in the Statistical Consulting Center, and am a teaching assistant for both the undergraduate and graduate offerings of Computational Statistics (STA 4373/5373/6375) with Dr. David Kahle.\nI have worked with Dr. Mandy Hering also with her on her contributions to the National Science Foundation Harnessing the Data Revolution: Data Science Corps project (Grant no. #1924146).\nI have also worked as a graduate supplemental instructor for the Introduction to Statistical Methods course (STA 2381).\n\nIntern | KAM (Křesťanská Akademie Mladých) June 2023 - Aug 2023\nAfter support raising for four months, I spent two and a half months working for a youth missions organization in Central and Eastern Europe, called KAM. For this work I lived in Ostrava, CZ where I assisted local CB churches with youth outreach through camps where I taught English and sports. I also helped onboard short-term mission teams who joined us for camps.\nAcademic Coach | Wheaton Academy Jan 2023 - May 2023\nIn this role I met with students 1-on-1 per their request to teach, review, and sharpen their math skills. I met with students ranging in courses from Algebra I to AP Statistics to help them prepare for their exams, whether it’s ones for courses or AP exams.\nTeaching Assistant | Wheaton College Aug 2022 - May 2023\nI was the teaching assistant for Dr. Peter Jantsch in the fall of 2022 and spring of 2023. I hosted weekly help sessions for students to come in for extra help, and graded course homework. The courses I helped with were: - MATH 465: Applied Machine Learning - MATH 363: Probability Theory"
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "Curriculum Vitae",
-    "section": "",
-    "text": "Download CV"
   }
 ]
