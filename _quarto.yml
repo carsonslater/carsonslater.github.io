@@ -3,7 +3,9 @@ project:
   output-dir: _site
 
 publish:
-  gh-pages: carsonslater/carsonslater.github.io
+  gh-pages:
+    repo-url: https://github.com/carsonslater/carsonslater.github.io
+    branch: gh-pages
 
 website:
   title: "Carson Slater"

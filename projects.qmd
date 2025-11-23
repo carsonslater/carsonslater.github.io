@@ -26,7 +26,7 @@ listing:
       description: "A white elephant gift exchange facilitator."
       image: images/projects/giftR.png
       categories: [R Package]
-      path: https://github.com/carsonslater/giftR
+      path: https://carsonslater.github.io/giftR/
   type: default
   categories: true
 ---
