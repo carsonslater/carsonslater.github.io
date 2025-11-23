@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Download CV"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Below are some of the projects I have worked on."
+  },
+  {
+    "objectID": "projects.html#research-development",
+    "href": "projects.html#research-development",
+    "title": "Projects",
+    "section": "",
+    "text": "Below are some of the projects I have worked on."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Carson Slater",
+    "section": "",
+    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world."
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Carson Slater",
+    "section": "",
+    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Carson Slater",
+    "section": "Skills",
+    "text": "Skills\n\nQuarto\nPositron\nGit/Github\nJAGS/Stan"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Carson Slater",
+    "section": "Education",
+    "text": "Education\nBaylor University | Waco, TX M.S. in Statistics | 2023 - 2024 GPA: 3.83/4.00 Activities: Baylor Sports Analytics Club (President)\nWheaton College (IL) | Wheaton, IL B.S. Applied Mathematics, B.A. Economics | 2019 - 2023 GPA: 3.46/4.00 Activities: Varsity Baseball, Sophomore Class Council"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Carson Slater",
+    "section": "Experience",
+    "text": "Experience\nGraduate Assistant | Baylor University Aug 2023 - Present\n\nCurrently, I am a research assistant with Dr. Mandy Hering where we collaborate with a utility for a Major US city.\nI consulted at Baylor University in the Statistical Consulting Center, and am a teaching assistant for both the undergraduate and graduate offerings of Computational Statistics (STA 4373/5373/6375) with Dr. David Kahle.\nI have worked with Dr. Mandy Hering also with her on her contributions to the National Science Foundation Harnessing the Data Revolution: Data Science Corps project (Grant no. #1924146).\nI have also worked as a graduate supplemental instructor for the Introduction to Statistical Methods course (STA 2381).\n\nIntern | KAM (Křesťanská Akademie Mladých) June 2023 - Aug 2023\nAfter support raising for four months, I spent two and a half months working for a youth missions organization in Central and Eastern Europe, called KAM. For this work I lived in Ostrava, CZ where I assisted local CB churches with youth outreach through camps where I taught English and sports. I also helped onboard short-term mission teams who joined us for camps.\nAcademic Coach | Wheaton Academy Jan 2023 - May 2023\nIn this role I met with students 1-on-1 per their request to teach, review, and sharpen their math skills. I met with students ranging in courses from Algebra I to AP Statistics to help them prepare for their exams, whether it’s ones for courses or AP exams.\nTeaching Assistant | Wheaton College Aug 2022 - May 2023\nI was the teaching assistant for Dr. Peter Jantsch in the fall of 2022 and spring of 2023. I hosted weekly help sessions for students to come in for extra help, and graded course homework. The courses I helped with were: - MATH 465: Applied Machine Learning - MATH 363: Probability Theory"
+  }
+]
