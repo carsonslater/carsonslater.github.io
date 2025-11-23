@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: _site
 
+publish:
+  gh-pages: carsonslater/carsonslater.github.io
+
 website:
   title: "Carson Slater"
   navbar:
