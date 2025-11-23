@@ -12,10 +12,10 @@ about:
       href: https://www.linkedin.com/in/carsonslateratbaylor/
     - icon: instagram
       text: Instagram
-      href: https://www.instagram.com/slatercarson/
-    - icon: file-text
-      text: Resume
-      href: files/Slater_Stats_Resume.pdf
+      href: https://www.instagram.com/carson.sl8r/
+    - icon: brands fa-bookmark
+      text: Substack
+      href: https://honestinference.substack.com
     - icon: envelope
       text: Email
       href: mailto:carson_slater1@baylor.edu
@@ -28,49 +28,3 @@ I am a third-year graduate student in the [Department of Statistical Science](ht
 Generally speaking, you can find me at [Grace Church Waco](https://gracewaco.com) on a given Sunday morning, and I'm always trying to find a way to go back to the Czech Republic to work with [Křesťanská Akademie Mladých](https://kam.cz) again.
 
 Currently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world.
-
-## Skills
-
-- Quarto
-- Positron
-- Git/Github
-- JAGS/Stan
-
-## Education
-
-**Baylor University** | Waco, TX
-M.S. in Statistics | 2023 - 2024
-*GPA: 3.83/4.00*
-*Activities: Baylor Sports Analytics Club (President)*
-
-**Wheaton College (IL)** | Wheaton, IL
-B.S. Applied Mathematics, B.A. Economics | 2019 - 2023
-*GPA: 3.46/4.00*
-*Activities: Varsity Baseball, Sophomore Class Council*
-
-## Experience
-
-**Graduate Assistant** | Baylor University
-*Aug 2023 - Present*
-
-- Currently, I am a research assistant with Dr. Mandy Hering where we collaborate with a utility for a Major US city.
-- I consulted at Baylor University in the Statistical Consulting Center, and am a teaching assistant for both the undergraduate and graduate offerings of Computational Statistics (STA 4373/5373/6375) with Dr. David Kahle.
-- I have worked with Dr. Mandy Hering also with her on her contributions to the National Science Foundation Harnessing the Data Revolution: Data Science Corps project (Grant no. #1924146).
-- I have also worked as a graduate supplemental instructor for the Introduction to Statistical Methods course (STA 2381).
-
-**Intern** | KAM (Křesťanská Akademie Mladých)
-*June 2023 - Aug 2023*
-
-After support raising for four months, I spent two and a half months working for a youth missions organization in Central and Eastern Europe, called KAM. For this work I lived in Ostrava, CZ where I assisted local CB churches with youth outreach through camps where I taught English and sports. I also helped onboard short-term mission teams who joined us for camps.
-
-**Academic Coach** | Wheaton Academy
-*Jan 2023 - May 2023*
-
-In this role I met with students 1-on-1 per their request to teach, review, and sharpen their math skills. I met with students ranging in courses from Algebra I to AP Statistics to help them prepare for their exams, whether it’s ones for courses or AP exams.
-
-**Teaching Assistant** | Wheaton College
-*Aug 2022 - May 2023*
-
-I was the teaching assistant for [Dr. Peter Jantsch](https://peter-jantsch.github.io) in the fall of 2022 and spring of 2023. I hosted weekly help sessions for students to come in for extra help, and graded course homework. The courses I helped with were:
-- MATH 465: Applied Machine Learning
-- MATH 363: Probability Theory

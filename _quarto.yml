@@ -26,6 +26,7 @@ website:
         href: https://www.instagram.com/slatercarson/
       - icon: envelope
         href: mailto:carson_slater1@baylor.edu
+    background: primary
 
 format:
   html:
