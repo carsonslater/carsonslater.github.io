@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Projects – Carson Slater</title>
+<title>Blog – Carson Slater</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-image','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-image","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -131,7 +131,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-</head>
+<link rel="alternate" type="application/rss+xml" title="Carson Slater" href="blog.xml" data-external="1"></head>
 
 <body class="nav-fixed quarto-light">
 
@@ -155,11 +155,11 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -196,29 +196,23 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#research-development" id="toc-research-development" class="nav-link active" data-scroll-target="#research-development">Research &amp; Development</a></li>
-  </ul>
-</nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHluYW1pYyUyMFNwZWN0cnVtJTIwQWNjZXNz">Dynamic Spectrum Access <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VuZXJhbGl6ZWQlMjBBZGRpdGl2ZSUyME1vZGVscw==">Generalized Additive Models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VuZXJhbGl6ZWQlMjBMaW5lYXIlMjBNaXhlZCUyME1vZGVscw==">Generalized Linear Mixed Models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmFub3BhcnRpY2xlJTIwQmFjdGVyaWFsJTIwSW5oaWJpdGlvbg==">Nanoparticle Bacterial Inhibition <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3JkaW5hbCUyMFJlZ3Jlc3Npb24=">Ordinal Regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9zaXRyb24=">Positron <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UiUyMFBhY2thZ2U=">R Package <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UiUyRlJTdHVkaW8=">R/RStudio <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2FzdGV3YXRlciUyMFRyZWF0bWVudA==">Wastewater Treatment <span class="quarto-category-count">(1)</span></div></div></div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">Blog</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -230,143 +224,64 @@ window.Quarto = {
 </header>
 
 
-<section id="research-development" class="level2">
-<h2 class="anchored" data-anchor-id="research-development">Research &amp; Development</h2>
-<p>Below are some of the projects I have worked on.</p>
 
 
 
-</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TmFub3BhcnRpY2xlJTIwQmFjdGVyaWFsJTIwSW5oaWJpdGlvbiUyQ09yZGluYWwlMjBSZWdyZXNzaW9uJTJDR2VuZXJhbGl6ZWQlMjBMaW5lYXIlMjBNaXhlZCUyME1vZGVscw==">
-<div class="thumbnail"><a href="https://www.mdpi.com/2079-4983/16/3/113" class="no-external">
+<div class="quarto-post image-right" data-index="0" data-categories="bmV3cw==" data-listing-date-sort="1763856000000" data-listing-file-modified-sort="1763952123099" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="93">
+<div class="thumbnail"><a href="./posts/welcome-post/index.html" class="no-external">
 
-<img loading="lazy" src="images/projects/greyscale_ridgesv3.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://www.mdpi.com/2079-4983/16/3/113" class="no-external">Assessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TmFub3BhcnRpY2xlJTIwQmFjdGVyaWFsJTIwSW5oaWJpdGlvbg=='); return false;">Nanoparticle Bacterial Inhibition</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3JkaW5hbCUyMFJlZ3Jlc3Npb24='); return false;">Ordinal Regression</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhbGl6ZWQlMjBMaW5lYXIlMjBNaXhlZCUyME1vZGVscw=='); return false;">Generalized Linear Mixed Models</div>
-
-</div>
-<div class="delink listing-description"><a href="https://www.mdpi.com/2079-4983/16/3/113" class="no-external">
-<p>This paper employs statistical methods to do pairwise comparisons when ANOVA assumptions are egregiously violated.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://www.mdpi.com/2079-4983/16/3/113" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="RHluYW1pYyUyMFNwZWN0cnVtJTIwQWNjZXNzJTJDR2VuZXJhbGl6ZWQlMjBBZGRpdGl2ZSUyME1vZGVscw==">
-<div class="thumbnail"><a href="https://ieeexplore.ieee.org/document/10619025" class="no-external">
-
-<img loading="lazy" src="images/projects/agg_interference_diagram.png" class="thumbnail-image">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="https://ieeexplore.ieee.org/document/10619025" class="no-external">Assessing Interference with Regression Analysis Techniques</a>
+<a href="./posts/welcome-post/index.html" class="no-external">Welcome to My Blog</a>
 </h3>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RHluYW1pYyUyMFNwZWN0cnVtJTIwQWNjZXNz'); return false;">Dynamic Spectrum Access</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhbGl6ZWQlMjBBZGRpdGl2ZSUyME1vZGVscw=='); return false;">Generalized Additive Models</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
 
 </div>
-<div class="delink listing-description"><a href="https://ieeexplore.ieee.org/document/10619025" class="no-external">
-<p>This work proposes using regression analysis to predict aggregate interference in next-generation Dynamic Spectrum Access (DSA) systems.</p>
+<div class="delink listing-description"><a href="./posts/welcome-post/index.html" class="no-external">
+<p>The first post on my new blog</p>
 </a></div>
 </div>
 <div class="metadata">
-<a href="https://ieeexplore.ieee.org/document/10619025" class="no-external">
-</a>
+<a href="./posts/welcome-post/index.html" class="no-external">
+<div class="listing-date">
+Nov 23, 2025
 </div>
+<div class="listing-author">
+Carson Slater
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNSJTJGUlN0dWRpbyUyQ1dhc3Rld2F0ZXIlMjBUcmVhdG1lbnQ=">
-<div class="thumbnail"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E" class="no-external">
-
-<img loading="lazy" src="images/projects/mowtr_hex.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E" class="no-external">Mo(Wa)²TER Introduction to Data Science Course Material</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyRlJTdHVkaW8='); return false;">R/RStudio</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('V2FzdGV3YXRlciUyMFRyZWF0bWVudA=='); return false;">Wastewater Treatment</div>
-
-</div>
-<div class="delink listing-description"><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E" class="no-external">
-<p>We used problems in water and wastewater treatment to create a data science course.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UG9zaXRyb24=">
-<div class="thumbnail"><a href="https://github.com/carsonslater/cobaltpositron" class="no-external">
-
-<img loading="lazy" src="images/projects/cobalt.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/carsonslater/cobaltpositron" class="no-external">Cobalt Theme for Positron</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UG9zaXRyb24='); return false;">Positron</div>
-
-</div>
-<div class="delink listing-description"><a href="https://github.com/carsonslater/cobaltpositron" class="no-external">
-<p>A dark theme based on the Cobalt RStudio theme for Positron (and VS Code).</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/carsonslater/cobaltpositron" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="UiUyMFBhY2thZ2U=">
-<div class="thumbnail"><a href="https://carsonslater.github.io/giftR/" class="no-external">
-
-<img loading="lazy" src="images/projects/giftR.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://carsonslater.github.io/giftR/" class="no-external">giftR</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFBhY2thZ2U='); return false;">R Package</div>
-
-</div>
-<div class="delink listing-description"><a href="https://carsonslater.github.io/giftR/" class="no-external">
-<p>A white elephant gift exchange facilitator.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://carsonslater.github.io/giftR/" class="no-external">
 </a>
 </div>
 </div>

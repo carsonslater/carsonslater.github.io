@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Below are some of the projects I have worked on."
+  },
+  {
+    "objectID": "projects.html#research-development",
+    "href": "projects.html#research-development",
+    "title": "Projects",
+    "section": "",
+    "text": "Below are some of the projects I have worked on."
+  },
+  {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "Curriculum Vitae",
@@ -63,20 +77,6 @@
     "text": "Jun 2023–Aug 2023\n\nBuilt a blog to keep supporters updated on mission work.\nTaught English and sports in schools and at camps; supported local CB churches.\nTrained incoming short-term mission teams."
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Below are some of the projects I have worked on."
-  },
-  {
-    "objectID": "projects.html#research-development",
-    "href": "projects.html#research-development",
-    "title": "Projects",
-    "section": "",
-    "text": "Below are some of the projects I have worked on."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Carson Slater",
@@ -89,5 +89,26 @@
     "title": "Carson Slater",
     "section": "",
     "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world."
+  },
+  {
+    "objectID": "posts/welcome-post/index.html",
+    "href": "posts/welcome-post/index.html",
+    "title": "Welcome to My Blog",
+    "section": "",
+    "text": "This is the first post on my new blog. I’m excited to share my thoughts, projects, and insights here.\n\n\nIn future posts, I’ll be writing about:\n\nStatistical methods and data analysis\nR programming and Quarto\nResearch projects and findings\nThoughts on faith, life, and learning\n\n\n\n\nCreating a new blog post is easy! Just:\n\nCreate a new directory in the posts/ folder\nAdd an index.qmd file with your content\nInclude YAML frontmatter with title, description, date, and categories\nRender your site with quarto preview or quarto render\n\nStay tuned for more content!"
+  },
+  {
+    "objectID": "posts/welcome-post/index.html#welcome",
+    "href": "posts/welcome-post/index.html#welcome",
+    "title": "Welcome to My Blog",
+    "section": "",
+    "text": "This is the first post on my new blog. I’m excited to share my thoughts, projects, and insights here.\n\n\nIn future posts, I’ll be writing about:\n\nStatistical methods and data analysis\nR programming and Quarto\nResearch projects and findings\nThoughts on faith, life, and learning\n\n\n\n\nCreating a new blog post is easy! Just:\n\nCreate a new directory in the posts/ folder\nAdd an index.qmd file with your content\nInclude YAML frontmatter with title, description, date, and categories\nRender your site with quarto preview or quarto render\n\nStay tuned for more content!"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWelcome to My Blog\n\n\n\nnews\n\n\n\nThe first post on my new blog\n\n\n\n\n\nNov 23, 2025\n\n\nCarson Slater\n\n\n\n\n\nNo matching items"
   }
 ]
