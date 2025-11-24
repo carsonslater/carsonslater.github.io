@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Carson Slater - Curriculum Vitae</title>
+<title>Carson Slater - Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,12 +68,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-</head>
+<link rel="alternate" type="application/rss+xml" title="Carson Slater" href="blog.xml" data-external="1"></head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -97,11 +157,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./cv.html" aria-current="page"> 
+    <a class="nav-link" href="./cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -134,21 +194,23 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Curriculum Vitae</h1>
+<h1 class="title">Blog</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -160,131 +222,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="carson-slater" class="level1">
-<h1>Carson Slater</h1>
-<div class="grid">
-<div class="g-col-4 cv-sidebar">
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p><i class="bi bi-envelope"></i> <a href="mailto:carson_slater1@baylor.edu">carson_slater1@baylor.edu</a><br>
-<i class="bi bi-github"></i> <a href="https://github.com/carsonslater">carsonslater</a><br>
-<i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/carsonslateratbaylor/">carsonslateratbaylor</a><br>
-<i class="bi bi-instagram"></i> <a href="https://www.instagram.com/carson.sl8r/">carson.sl8r</a></p>
-</section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><strong>Ph.D., Statistical Science</strong><br>
-Baylor University<br>
-<em>2024–Pending</em></p>
-<p><strong>M.S., Statistical Science</strong><br>
-Baylor University<br>
-<em>2023–2024</em></p>
-<p><strong>B.S., Applied Math / B.A., Econ</strong><br>
-Wheaton College<br>
-<em>2019–2023</em><br>
-<em>Edman Presidential Scholarship</em></p>
-</section>
-<section id="skills" class="level2">
-<h2 class="anchored" data-anchor-id="skills">Skills</h2>
-<p><strong>Tools</strong><br>
-Docker, RStudio, Git/GitHub, reveal.js, Positron</p>
-<p><strong>Languages</strong><br>
-R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JS, CSS, HTML</p>
-</section>
-<section id="misc." class="level2">
-<h2 class="anchored" data-anchor-id="misc.">Misc.</h2>
-<p><strong>Varsity Baseball Player</strong><br>
-Wheaton College<br>
-<em>2019–2022</em></p>
-<p><strong>Christian Character Award</strong><br>
-Valley Christian HS<br>
-<em>2019</em></p>
-</section>
-</div>
-<div class="g-col-8 cv-main">
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Motivated graduate student seeking consulting opportunities. Aspiring applied statistician who loves to use statistical methods to empower people with insights for good stewardship.</p>
-</section>
-<section id="experience" class="level2">
-<h2 class="anchored" data-anchor-id="experience">Experience</h2>
-<section id="research-assistant" class="level3">
-<h3 class="anchored" data-anchor-id="research-assistant">Research Assistant</h3>
-<p><strong>Baylor University</strong> | <em>Jan 2024–Present</em></p>
-<ul>
-<li>Conducts research with Dr.&nbsp;Mandy Hering with collaborators in urban water treatment and infrastructure.</li>
-</ul>
-</section>
-<section id="graduate-assistant" class="level3">
-<h3 class="anchored" data-anchor-id="graduate-assistant">Graduate Assistant</h3>
-<p><strong>Baylor University</strong> | <em>Aug 2023–Dec 2024</em></p>
-<ul>
-<li>Collaborated in the Statistical Consulting Center on interdisciplinary research.</li>
-<li>TA for Computational Statistics (STA 4373/5373/6375).</li>
-<li>Led four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).</li>
-</ul>
-</section>
-<section id="academic-coach" class="level3">
-<h3 class="anchored" data-anchor-id="academic-coach">Academic Coach</h3>
-<p><strong>Wheaton Academy Center for Lifelong Learning</strong> | <em>Jan 2023–Mar 2023</em></p>
-<ul>
-<li>Taught and reviewed mathematics with students ranging from Algebra I to AP Statistics.</li>
-</ul>
-</section>
-<section id="mathematics-teaching-assistant" class="level3">
-<h3 class="anchored" data-anchor-id="mathematics-teaching-assistant">Mathematics Teaching Assistant</h3>
-<p><strong>Wheaton College</strong> | <em>Aug 2022–May 2023</em></p>
-<ul>
-<li>TA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).</li>
-<li>Graded weekly assignments and hosted help sessions.</li>
-</ul>
-</section>
-<section id="participant" class="level3">
-<h3 class="anchored" data-anchor-id="participant">Participant</h3>
-<p><strong>Duke/NCSU Summer Institute for Biostatistics</strong> | <em>Jun 2022–Jul 2022</em></p>
-<ul>
-<li>Participated in biostatistics coursework at Duke Clinical Research Institute and NC State.</li>
-<li>Completed a hackathon on myocardial infarction modeling. <a href="https://github.com/carsonslater/sibs_summer2022">GitHub</a></li>
-</ul>
-</section>
-</section>
-<section id="papers" class="level2">
-<h2 class="anchored" data-anchor-id="papers">Papers</h2>
-<section id="assessing-the-effects-of-surface-stabilized-zero-valent-iron-nanoparticles-march-2025" class="level3">
-<h3 class="anchored" data-anchor-id="assessing-the-effects-of-surface-stabilized-zero-valent-iron-nanoparticles-march-2025">Assessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles (March 2025)</h3>
-<p><strong><a href="https://doi.org/10.3390/jfb16030113">Paper</a></strong></p>
-<ul>
-<li>Used ordinal regression and generalized linear models to understand relationships between nanoparticle coatings and bacterial inhibition.</li>
-</ul>
-</section>
-<section id="assessing-interference-with-regression-analysis-techniques-april-2024" class="level3">
-<h3 class="anchored" data-anchor-id="assessing-interference-with-regression-analysis-techniques-april-2024">Assessing Interference with Regression Analysis Techniques (April 2024)</h3>
-<p><strong><a href="https://doi.org/10.1109/WMCS62019.2024.10619025">Paper</a></strong></p>
-<ul>
-<li>Used generalized additive models to predict pairwise interference in a Dynamic Spectrum Access context.</li>
-<li>Presented at the 2024 IEEE Texas Symposium on Wireless and Microwave Circuits and Systems (WMCS).</li>
-</ul>
-</section>
-</section>
-<section id="volunteer" class="level2">
-<h2 class="anchored" data-anchor-id="volunteer">Volunteer</h2>
-<section id="intern-křesťanská-akademie-mladých" class="level3">
-<h3 class="anchored" data-anchor-id="intern-křesťanská-akademie-mladých">Intern — Křesťanská Akademie Mladých</h3>
-<p><em>Jun 2023–Aug 2023</em></p>
-<ul>
-<li>Built a blog to keep supporters updated on mission work.</li>
-<li>Taught English and sports in schools and at camps; supported local CB churches.</li>
-<li>Trained incoming short-term mission teams.</li>
-</ul>
-</section>
-</section>
-</div>
-</div>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="news" data-listing-date-sort="1763877600000" data-listing-file-modified-sort="1763940622012" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="93">
+<div class="thumbnail">
+<p><a href="./posts/welcome-post/index.html" class="no-external"></a></p><a href="./posts/welcome-post/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/welcome-post/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/welcome-post/index.html" class="no-external">Welcome to My Blog</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/welcome-post/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
+news
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/welcome-post/index.html" class="no-external">The first post on my new blog</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/welcome-post/index.html" class="no-external">
+<div class="listing-date">
+Nov 23, 2025
+</div>
+<div class="listing-author">
+Carson Slater
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

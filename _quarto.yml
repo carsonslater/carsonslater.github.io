@@ -9,12 +9,15 @@ publish:
 
 website:
   title: "Carson Slater"
+  site-url: "https://carsonslater.github.io"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: projects.qmd
         text: Projects
+      - href: blog.qmd
+        text: Blog
       - href: cv.qmd
         text: CV
     right:

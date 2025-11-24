@@ -1,0 +1,31 @@
+---
+title: "Welcome to My Blog"
+description: "The first post on my new blog"
+author: "Carson Slater"
+date: "2025-11-23"
+categories: [news]
+---
+
+## Welcome!
+
+This is the first post on my new blog. I'm excited to share my thoughts, projects, and insights here.
+
+### What to Expect
+
+In future posts, I'll be writing about:
+
+- Statistical methods and data analysis
+- R programming and Quarto
+- Research projects and findings
+- Thoughts on faith, life, and learning
+
+### Getting Started
+
+Creating a new blog post is easy! Just:
+
+1. Create a new directory in the `posts/` folder
+2. Add an `index.qmd` file with your content
+3. Include YAML frontmatter with title, description, date, and categories
+4. Render your site with `quarto preview` or `quarto render`
+
+Stay tuned for more content!

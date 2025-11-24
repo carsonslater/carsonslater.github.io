@@ -1,0 +1,5 @@
+# Default metadata for all blog posts
+freeze: true
+
+# Default author
+author: "Carson Slater"

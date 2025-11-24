@@ -2,120 +2,120 @@
 title: "Curriculum Vitae"
 ---
 
-# **Carson Slater**
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: false
+---
 
-## **Summary**
+# Carson Slater
+
+::: {.grid}
+
+::: {.g-col-4 .cv-sidebar}
+
+## Contact
+
+<i class="bi bi-envelope"></i> [carson_slater1@baylor.edu](mailto:carson_slater1@baylor.edu)  
+<i class="bi bi-github"></i> [carsonslater](https://github.com/carsonslater)  
+<i class="bi bi-linkedin"></i> [carsonslateratbaylor](https://www.linkedin.com/in/carsonslateratbaylor/)  
+<i class="bi bi-instagram"></i> [carson.sl8r](https://www.instagram.com/carson.sl8r/)
+
+## Education
+
+**Ph.D., Statistical Science**  
+Baylor University  
+*2024–Pending*
+
+**M.S., Statistical Science**  
+Baylor University  
+*2023–2024*
+
+**B.S., Applied Math / B.A., Econ**  
+Wheaton College  
+*2019–2023*  
+*Edman Presidential Scholarship*
+
+## Skills
+
+**Tools**  
+Docker, RStudio, Git/GitHub, reveal.js, Positron
+
+**Languages**  
+R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JS, CSS, HTML
+
+## Misc.
+
+**Varsity Baseball Player**  
+Wheaton College  
+*2019–2022*
+
+**Christian Character Award**  
+Valley Christian HS  
+*2019*
+
+:::
+
+::: {.g-col-8 .cv-main}
+
+## Summary
 
 Motivated graduate student seeking consulting opportunities. Aspiring applied statistician who loves to use statistical methods to empower people with insights for good stewardship.
 
----
+## Experience
 
-## **Papers**
+### Research Assistant
+**Baylor University** | *Jan 2024–Present*
 
-### **Assessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles on Diverse Bacteria Species Using Complementary Statistical Models (March 2025)**
+*   Conducts research with Dr. Mandy Hering with collaborators in urban water treatment and infrastructure.
 
+### Graduate Assistant
+**Baylor University** | *Aug 2023–Dec 2024*
+
+*   Collaborated in the Statistical Consulting Center on interdisciplinary research.
+*   TA for Computational Statistics (STA 4373/5373/6375).
+*   Led four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).
+
+### Academic Coach
+**Wheaton Academy Center for Lifelong Learning** | *Jan 2023–Mar 2023*
+
+*   Taught and reviewed mathematics with students ranging from Algebra I to AP Statistics.
+
+### Mathematics Teaching Assistant
+**Wheaton College** | *Aug 2022–May 2023*
+
+*   TA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).
+*   Graded weekly assignments and hosted help sessions.
+
+### Participant
+**Duke/NCSU Summer Institute for Biostatistics** | *Jun 2022–Jul 2022*
+
+*   Participated in biostatistics coursework at Duke Clinical Research Institute and NC State.
+*   Completed a hackathon on myocardial infarction modeling. [GitHub](https://github.com/carsonslater/sibs_summer2022)
+
+## Papers
+
+### Assessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles (March 2025)
 **[Paper](https://doi.org/10.3390/jfb16030113)**
 
-* Used ordinal regression and generalized linear models to understand relationships between nanoparticle coatings and bacterial inhibition.
+*   Used ordinal regression and generalized linear models to understand relationships between nanoparticle coatings and bacterial inhibition.
 
-### **Assessing Interference with Regression Analysis Techniques (April 2024)**
-
+### Assessing Interference with Regression Analysis Techniques (April 2024)
 **[Paper](https://doi.org/10.1109/WMCS62019.2024.10619025)**
 
-* Used generalized additive models to predict pairwise interference in a Dynamic Spectrum Access context.
-* Presented at the 2024 IEEE Texas Symposium on Wireless and Microwave Circuits and Systems (WMCS).
+*   Used generalized additive models to predict pairwise interference in a Dynamic Spectrum Access context.
+*   Presented at the 2024 IEEE Texas Symposium on Wireless and Microwave Circuits and Systems (WMCS).
 
----
+## Volunteer
 
-## **Projects**
+### Intern — Křesťanská Akademie Mladých
+*Jun 2023–Aug 2023*
 
-### **Mo(Wa)(^2)TER Introduction to Data Science Course Material**
+*   Built a blog to keep supporters updated on mission work.
+*   Taught English and sports in schools and at camps; supported local CB churches.
+*   Trained incoming short-term mission teams.
 
-**[Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZJW2E)**
+:::
 
-* Edited and compiled material with Dr. Mandy Hering on her contributions to the NSF HDR–Data Science Corps project (Grant #1924146).
-
-### **Forecasting Demand With Generalized Additive Models**
-
-**[GitHub](https://github.com/carsonslater/mentored_research2022)**
-
-* Built forecasting models to predict quantity demanded for fast-moving consumer goods in Indonesia.
-* Presented poster at UIC’s 2022 Undergraduate Mathematics Symposium and the 2022 Wheaton College Homecoming STEM Poster Session.
-
-### **Understanding and Modeling Predictors to Earned Run Average in Modern Major League Baseball**
-
-* Conducted variable selection using the Lahman baseball database to model ERA using regression analysis.
-* Built a single-layer neural network and radial SVR model in R.
-
----
-
-## **Education**
-
-**PhD, Statistical Science** — Baylor University, Waco, TX (2024–Pending)
-
-**M.S., Statistical Science** — Baylor University, Waco, TX (2023–2024)
-
-**B.S., Applied Mathematics with Statistics**; **B.A., Economics** — Wheaton College (2019–2023)
-
-*Edman Presidential Scholarship*
-
----
-
-## **Skills**
-
-**Software Tools:** Docker, RStudio, Git/GitHub, reveal.js, Positron
-
-**Software Languages:** R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JavaScript, CSS, HTML
-
-**Relevant Coursework:** Bayesian Methods, Survival Analysis, Time Series, Theory of Statistics, Statistical Methods, Computational Statistics, Numerical Analysis, Linear Algebra for Data Analysis, Mathematical Statistics, Machine Learning, Probability Theory, Real Analysis, Harvard’s CS Introduction, Econometrics, Economics of Labor and Poverty
-
----
-
-## **Employment**
-
-### **Research Assistant** — Baylor University (Jan 2024–present)
-
-* Conducts research with Dr. Mandy Hering with collaborators in urban water treatment and infrastructure.
-
-### **Graduate Assistant** — Baylor University (Aug 2023–Dec 2024)
-
-* Collaborated in the Statistical Consulting Center on interdisciplinary research.
-* TA for Computational Statistics (STA 4373/5373/6375).
-* Led four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).
-
-### **Academic Coach** — Wheaton Academy Center for Lifelong Learning (Jan 2023–Mar 2023)
-
-* Taught and reviewed mathematics with students ranging from Algebra I to AP Statistics.
-
-### **Mathematics Teaching Assistant** — Wheaton College (Aug 2022–May 2023)
-
-* TA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).
-* Graded weekly assignments and hosted help sessions.
-
-### **Participant** — Duke/NCSU Summer Institute for Biostatistics (Jun 2022–Jul 2022)
-
-* Participated in biostatistics coursework at Duke Clinical Research Institute and NC State.
-* Completed a hackathon on myocardial infarction modeling.
-  **[GitHub](https://github.com/carsonslater/sibs_summer2022)**
-
----
-
-## **Volunteer**
-
-### **Intern — Křesťanská Akademie Mladých** (Jun 2023–Aug 2023)
-
-* Built a blog to keep supporters updated on mission work.
-* Taught English and sports in schools and at camps; supported local CB churches.
-* Trained incoming short-term mission teams.
-
----
-
-## **Honors & Awards**
-
-### **Varsity Baseball Player** — Wheaton College (Aug 2019–May 2022)
-
-* Practiced six days a week and played 40+ games per season.
-
-### **Christian Character Award** — Valley Christian High School (May 2019)
-
-* Awarded to one senior exemplifying Christ-like character, integrity, and passion for the gospel.
+:::
