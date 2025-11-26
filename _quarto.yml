@@ -10,7 +10,15 @@ publish:
 website:
   title: "Carson Slater"
   site-url: "https://carsonslater.github.io"
+  favicon: images/logo.png
+  open-graph:
+    image: images/logo.png
+    description: "Carson Slater's personal website - Statistics, Data Science, and Research"
+  twitter-card:
+    image: images/logo.png
+    description: "Carson Slater's personal website - Statistics, Data Science, and Research"
   navbar:
+    logo: images/logo.png
     left:
       - href: index.qmd
         text: Home
@@ -29,7 +37,7 @@ website:
         href: https://www.instagram.com/slatercarson/
       - icon: envelope
         href: mailto:carson_slater1@baylor.edu
-    background: primary
+    background: dark
 
 format:
   html:
