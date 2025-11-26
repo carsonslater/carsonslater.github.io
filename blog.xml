@@ -9,10 +9,10 @@
 <link>https://carsonslater.github.io/blog.html</link>
 <atom:link href="https://carsonslater.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 23 Nov 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Sun, 23 Nov 2025 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Welcome to My Blog</title>
+  <title>Coming Soon</title>
   <dc:creator>Carson Slater</dc:creator>
   <link>https://carsonslater.github.io/posts/welcome-post/</link>
   <description><![CDATA[ 
@@ -20,38 +20,428 @@
 
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>This is the first post on my new blog. I’m excited to share my thoughts, projects, and insights here.</p>
-<section id="what-to-expect" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-expect">What to Expect</h3>
-<p>In future posts, I’ll be writing about:</p>
+<p>In the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in…</p>
+<section id="visualizing-complex-functions-with-domain-coloring" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-complex-functions-with-domain-coloring">Visualizing Complex Functions with Domain Coloring</h2>
+<p>One of the challenges of working with complex-valued functions is that they’re difficult to visualize. For a real-valued function <img src="https://latex.codecogs.com/png.latex?f:%20%5Cmathbb%7BR%7D%20%5Cto%20%5Cmathbb%7BR%7D">, we can easily plot it on a 2D graph. But for a complex function <img src="https://latex.codecogs.com/png.latex?f:%20%5Cmathbb%7BC%7D%20%5Cto%20%5Cmathbb%7BC%7D">, both the input and output are two-dimensional, requiring four dimensions total to represent fully.</p>
+<p><strong>Domain coloring</strong> provides an elegant solution: we plot the domain (the <img src="https://latex.codecogs.com/png.latex?xy">-plane representing <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BC%7D%20%5Ccong%20%5Cmathbb%7BR%7D%5E2">) and use color to encode information about the output <img src="https://latex.codecogs.com/png.latex?f(z)">. Specifically:</p>
 <ul>
-<li>Statistical methods and data analysis</li>
-<li>R programming and Quarto</li>
-<li>Research projects and findings</li>
-<li>Thoughts on faith, life, and learning</li>
+<li><strong>Hue</strong> represents the argument (angle) of <img src="https://latex.codecogs.com/png.latex?f(z)">: <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BArg%7D(f(z))%20%5Cin%20(-%5Cpi,%20%5Cpi%5D"></li>
+<li><strong>Lightness</strong> represents the modulus (magnitude) of <img src="https://latex.codecogs.com/png.latex?f(z)">: <img src="https://latex.codecogs.com/png.latex?%7Cf(z)%7C"></li>
 </ul>
-</section>
-<section id="getting-started" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
-<p>Creating a new blog post is easy! Just:</p>
-<ol type="1">
-<li>Create a new directory in the <code>posts/</code> folder</li>
-<li>Add an <code>index.qmd</code> file with your content</li>
-<li>Include YAML frontmatter with title, description, date, and categories</li>
-<li>Render your site with <code>quarto preview</code> or <code>quarto render</code></li>
-</ol>
-<p>Stay tuned for more content!</p>
+<p>Below, I’ve visualized the function:</p>
+<p><img src="https://latex.codecogs.com/png.latex?f(z)%20=%20%5Cfrac%7Bz%5E2%20+%201%7D%7Bz%5E2%20-%201%7D"></p>
+<p>This function has two <strong>roots</strong> at <img src="https://latex.codecogs.com/png.latex?z%20=%20%5Cpm%20i"> (where the numerator equals zero) and two <strong>poles</strong> at <img src="https://latex.codecogs.com/png.latex?z%20=%20%5Cpm%201"> (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># functions</span></span>
+<span id="cb1-2">modulus <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(z) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Re</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(z <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Conj</span>(z)))</span>
+<span id="cb1-3">f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(z) (z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-4">rad2deg <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(rad, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rotate =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) ((rad <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> rotate) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># definitions</span></span>
+<span id="cb1-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># boundaries</span></span>
+<span id="cb1-8">L <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-9">U <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># making mesh</span></span>
+<span id="cb1-11">domain <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(L, U, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length.out =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1001</span>)</span>
+<span id="cb1-12"></span>
+<span id="cb1-13">mesh <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">expand.grid</span>(domain, domain) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb1-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> Var1, </span>
+<span id="cb1-15">         <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> Var2) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb1-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(x, y)</span>
+<span id="cb1-17"></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># color mapping components</span></span>
+<span id="cb1-19">z <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complex</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">real =</span> mesh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">imaginary =</span> mesh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>y)</span>
+<span id="cb1-20"></span>
+<span id="cb1-21">fz <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> z <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>()</span>
+<span id="cb1-22"></span>
+<span id="cb1-23">mod_fz <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> fz <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">modulus</span>()</span>
+<span id="cb1-24"></span>
+<span id="cb1-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># I ended using the second one from the Wikipedia page </span></span>
+<span id="cb1-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># and I added a constant to shift the color, as well as</span></span>
+<span id="cb1-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># a scale of 100 (a = 0.4 too)</span></span>
+<span id="cb1-28"></span>
+<span id="cb1-29">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.4</span></span>
+<span id="cb1-30">ell1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pi)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">atan</span>(mod_fz) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span></span>
+<span id="cb1-31">ell2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (mod_fz<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(mod_fz<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>a <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span> </span>
+<span id="cb1-32">ell3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>mod_fz<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(mod_fz<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>a <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># used this one </span></span>
+<span id="cb1-33"></span>
+<span id="cb1-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># used saturation of 80</span></span>
+<span id="cb1-35">my_colors <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Arg</span>(fz) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-36">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rad2deg</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-37">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span>, ell3) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb1-38">  farver<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">encode_colour</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hsl"</span>)</span>
+<span id="cb1-39"></span>
+<span id="cb1-40">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(mesh, my_colors) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-41">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>()</span>
+<span id="cb1-42"></span>
+<span id="cb1-43"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot replica attempt</span></span>
+<span id="cb1-44">df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-45">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(x, y)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-46">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_raster</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> my_colors)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb1-47">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Re(z)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Im(z)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-48">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_identity</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-49">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_equal</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-50">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb1-51">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.background =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_rect</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"transparent"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>),</span>
+<span id="cb1-52">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.background =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_rect</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"transparent"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>),</span>
+<span id="cb1-53">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb1-54">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>),</span>
+<span id="cb1-55">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>)</span>
+<span id="cb1-56">  )</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://carsonslater.github.io/posts/welcome-post/index_files/figure-html/6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
  ]]></description>
   <category>news</category>
   <guid>https://carsonslater.github.io/posts/welcome-post/</guid>
-  <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Nov 2025 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carsonslater.github.io/projects.html</loc>
-    <lastmod>2025-11-24T02:42:03.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://carsonslater.github.io/cv.html</loc>
-    <lastmod>2025-11-24T02:42:03.007Z</lastmod>
+    <loc>https://carsonslater.github.io/blog.html</loc>
+    <lastmod>2025-11-24T02:41:46.300Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/index.html</loc>
-    <lastmod>2025-11-24T02:42:03.099Z</lastmod>
+    <lastmod>2025-11-26T03:14:22.536Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/posts/welcome-post/index.html</loc>
-    <lastmod>2025-11-24T02:42:03.099Z</lastmod>
+    <lastmod>2025-11-26T03:28:38.121Z</lastmod>
   </url>
   <url>
-    <loc>https://carsonslater.github.io/blog.html</loc>
-    <lastmod>2025-11-24T02:42:03.007Z</lastmod>
+    <loc>https://carsonslater.github.io/projects.html</loc>
+    <lastmod>2025-11-23T03:39:10.800Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/cv.html</loc>
+    <lastmod>2025-11-24T02:41:46.300Z</lastmod>
   </url>
 </urlset>
