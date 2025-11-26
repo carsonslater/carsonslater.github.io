@@ -9,8 +9,8 @@
 <link>https://carsonslater.github.io/blog.html</link>
 <atom:link href="https://carsonslater.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 23 Nov 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Sun, 23 Nov 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Coming Soon</title>
   <dc:creator>Carson Slater</dc:creator>
@@ -35,14 +35,13 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># functions</span></span>
 <span id="cb1-2">modulus <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(z) <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Re</span>(<span class="fu" style="color: #4758AB;
@@ -56,7 +55,6 @@ font-style: inherit;">Conj</span>(z)))</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(z) (z<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
@@ -80,7 +78,6 @@ font-style: inherit;">1</span>)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(rad, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rotate =</span> <span class="dv" style="color: #AD0000;
@@ -427,7 +424,7 @@ background-color: null;
 font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"white"</span>)</span>
-<span id="cb1-56">  )</span></code></pre></div></div>
+<span id="cb1-56">  )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -444,7 +441,7 @@ font-style: inherit;">"white"</span>)</span>
  ]]></description>
   <category>news</category>
   <guid>https://carsonslater.github.io/posts/welcome-post/</guid>
-  <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Nov 2025 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
