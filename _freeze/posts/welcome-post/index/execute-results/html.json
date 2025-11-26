@@ -1,0 +1,17 @@
+{
+  "hash": "2b7d13a198df2c66cc5bef7048b34b81",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Coming Soon\"\ndescription: \"Stay tuned for more content!\"\nauthor: \"Carson Slater\"\ndate: \"2025-11-23\"\ncategories: [news]\n---\n\n\nIn the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in...\n\n## Visualizing Complex Functions with Domain Coloring\n\nOne of the challenges of working with complex-valued functions is that they're difficult to visualize. For a real-valued function $f: \\mathbb{R} \\to \\mathbb{R}$, we can easily plot it on a 2D graph. But for a complex function $f: \\mathbb{C} \\to \\mathbb{C}$, both the input and output are two-dimensional, requiring four dimensions total to represent fully.\n\n**Domain coloring** provides an elegant solution: we plot the domain (the $xy$-plane representing $\\mathbb{C} \\cong \\mathbb{R}^2$) and use color to encode information about the output $f(z)$. Specifically:\n\n- **Hue** represents the argument (angle) of $f(z)$: $\\text{Arg}(f(z)) \\in (-\\pi, \\pi]$\n- **Lightness** represents the modulus (magnitude) of $f(z)$: $|f(z)|$\n\nBelow, I've visualized the function:\n\n$$f(z) = \\frac{z^2 + 1}{z^2 - 1}$$\n\nThis function has two **roots** at $z = \\pm i$ (where the numerator equals zero) and two **poles** at $z = \\pm 1$ (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code  code-fold=\"true\"}\n# functions\nmodulus <- function(z) Re(sqrt(z * Conj(z)))\nf <- function(z) (z^2 + 1)/(z^2 - 1)\nrad2deg <- function(rad, rotate = 0) ((rad + rotate) * 360/(2*pi)) %% 360\n\n# definitions\n# boundaries\nL <- -2\nU <- 2\n# making mesh\ndomain <- seq(L, U, length.out = 1001)\n\nmesh <- expand.grid(domain, domain) |> \n  mutate(\"x\" = Var1, \n         \"y\" = Var2) |> \n  select(x, y)\n\n# color mapping components\nz <- complex(real = mesh$x, imaginary = mesh$y)\n\nfz <- z |> f()\n\nmod_fz <- fz |> modulus()\n\n# I ended using the second one from the Wikipedia page \n# and I added a constant to shift the color, as well as\n# a scale of 100 (a = 0.4 too)\n\na <- 0.4\nell1 <- (2/pi)*atan(mod_fz) + 65\nell2 <- (mod_fz^a/(mod_fz^a + 1))/10 + 65 \nell3 <- 100*mod_fz^a/(mod_fz^a + 1) + 25 # used this one \n\n# used saturation of 80\nmy_colors <- Arg(fz) |>\n  rad2deg() |>\n  cbind(80, ell3) |> \n  farver::encode_colour(from = \"hsl\")\n\ndf <- cbind(mesh, my_colors) |>\n  as.data.frame()\n\n# plot replica attempt\ndf |>\n  ggplot(aes(x, y)) +\n  geom_raster(aes(fill = my_colors)) + \n  labs(x = \"Re(z)\", y = \"Im(z)\") +\n  scale_fill_identity() +\n  coord_equal(xlim = c(-2,2), ylim = c(-2,2)) +\n  theme(\n    panel.background = element_rect(fill = \"transparent\", color = NA),\n    plot.background = element_rect(fill = \"transparent\", color = NA),\n    panel.grid = element_blank(),\n    axis.text = element_text(color = \"white\"),\n    axis.title = element_text(color = \"white\")\n  )\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/6-1.png){fig-align='center' width=480}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

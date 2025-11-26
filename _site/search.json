@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWelcome to My Blog\n\n\n\n\n\n\nnews\n\n\n\nThe first post on my new blog\n\n\n\n\n\nNov 23, 2025\n\n\nCarson Slater\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nComing Soon\n\n\n\n\n\n\nnews\n\n\n\nStay tuned for more content!\n\n\n\n\n\nNov 23, 2025\n\n\nCarson Slater\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -23,16 +23,16 @@
   {
     "objectID": "posts/welcome-post/index.html",
     "href": "posts/welcome-post/index.html",
-    "title": "Welcome to My Blog",
+    "title": "Coming Soon",
     "section": "",
-    "text": "This is the first post on my new blog. I’m excited to share my thoughts, projects, and insights here.\n\n\nIn future posts, I’ll be writing about:\n\nStatistical methods and data analysis\nR programming and Quarto\nResearch projects and findings\nThoughts on faith, life, and learning\n\n\n\n\nCreating a new blog post is easy! Just:\n\nCreate a new directory in the posts/ folder\nAdd an index.qmd file with your content\nInclude YAML frontmatter with title, description, date, and categories\nRender your site with quarto preview or quarto render\n\nStay tuned for more content!"
+    "text": "In the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in…"
   },
   {
-    "objectID": "posts/welcome-post/index.html#welcome",
-    "href": "posts/welcome-post/index.html#welcome",
-    "title": "Welcome to My Blog",
-    "section": "",
-    "text": "This is the first post on my new blog. I’m excited to share my thoughts, projects, and insights here.\n\n\nIn future posts, I’ll be writing about:\n\nStatistical methods and data analysis\nR programming and Quarto\nResearch projects and findings\nThoughts on faith, life, and learning\n\n\n\n\nCreating a new blog post is easy! Just:\n\nCreate a new directory in the posts/ folder\nAdd an index.qmd file with your content\nInclude YAML frontmatter with title, description, date, and categories\nRender your site with quarto preview or quarto render\n\nStay tuned for more content!"
+    "objectID": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
+    "href": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
+    "title": "Coming Soon",
+    "section": "Visualizing Complex Functions with Domain Coloring",
+    "text": "Visualizing Complex Functions with Domain Coloring\nOne of the challenges of working with complex-valued functions is that they’re difficult to visualize. For a real-valued function \\(f: \\mathbb{R} \\to \\mathbb{R}\\), we can easily plot it on a 2D graph. But for a complex function \\(f: \\mathbb{C} \\to \\mathbb{C}\\), both the input and output are two-dimensional, requiring four dimensions total to represent fully.\nDomain coloring provides an elegant solution: we plot the domain (the \\(xy\\)-plane representing \\(\\mathbb{C} \\cong \\mathbb{R}^2\\)) and use color to encode information about the output \\(f(z)\\). Specifically:\n\nHue represents the argument (angle) of \\(f(z)\\): \\(\\text{Arg}(f(z)) \\in (-\\pi, \\pi]\\)\nLightness represents the modulus (magnitude) of \\(f(z)\\): \\(|f(z)|\\)\n\nBelow, I’ve visualized the function:\n\\[f(z) = \\frac{z^2 + 1}{z^2 - 1}\\]\nThis function has two roots at \\(z = \\pm i\\) (where the numerator equals zero) and two poles at \\(z = \\pm 1\\) (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.\n\n\nCode\n# functions\nmodulus &lt;- function(z) Re(sqrt(z * Conj(z)))\nf &lt;- function(z) (z^2 + 1)/(z^2 - 1)\nrad2deg &lt;- function(rad, rotate = 0) ((rad + rotate) * 360/(2*pi)) %% 360\n\n# definitions\n# boundaries\nL &lt;- -2\nU &lt;- 2\n# making mesh\ndomain &lt;- seq(L, U, length.out = 1001)\n\nmesh &lt;- expand.grid(domain, domain) |&gt; \n  mutate(\"x\" = Var1, \n         \"y\" = Var2) |&gt; \n  select(x, y)\n\n# color mapping components\nz &lt;- complex(real = mesh$x, imaginary = mesh$y)\n\nfz &lt;- z |&gt; f()\n\nmod_fz &lt;- fz |&gt; modulus()\n\n# I ended using the second one from the Wikipedia page \n# and I added a constant to shift the color, as well as\n# a scale of 100 (a = 0.4 too)\n\na &lt;- 0.4\nell1 &lt;- (2/pi)*atan(mod_fz) + 65\nell2 &lt;- (mod_fz^a/(mod_fz^a + 1))/10 + 65 \nell3 &lt;- 100*mod_fz^a/(mod_fz^a + 1) + 25 # used this one \n\n# used saturation of 80\nmy_colors &lt;- Arg(fz) |&gt;\n  rad2deg() |&gt;\n  cbind(80, ell3) |&gt; \n  farver::encode_colour(from = \"hsl\")\n\ndf &lt;- cbind(mesh, my_colors) |&gt;\n  as.data.frame()\n\n# plot replica attempt\ndf |&gt;\n  ggplot(aes(x, y)) +\n  geom_raster(aes(fill = my_colors)) + \n  labs(x = \"Re(z)\", y = \"Im(z)\") +\n  scale_fill_identity() +\n  coord_equal(xlim = c(-2,2), ylim = c(-2,2)) +\n  theme(\n    panel.background = element_rect(fill = \"transparent\", color = NA),\n    plot.background = element_rect(fill = \"transparent\", color = NA),\n    panel.grid = element_blank(),\n    axis.text = element_text(color = \"white\"),\n    axis.title = element_text(color = \"white\")\n  )"
   },
   {
     "objectID": "projects.html",

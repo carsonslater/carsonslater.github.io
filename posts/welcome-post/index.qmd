@@ -1,31 +1,91 @@
 ---
-title: "Welcome to My Blog"
-description: "The first post on my new blog"
+title: "Coming Soon"
+description: "Stay tuned for more content!"
 author: "Carson Slater"
 date: "2025-11-23"
 categories: [news]
 ---
 
-## Welcome!
+In the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in...
 
-This is the first post on my new blog. I'm excited to share my thoughts, projects, and insights here.
+## Visualizing Complex Functions with Domain Coloring
 
-### What to Expect
+One of the challenges of working with complex-valued functions is that they're difficult to visualize. For a real-valued function $f: \mathbb{R} \to \mathbb{R}$, we can easily plot it on a 2D graph. But for a complex function $f: \mathbb{C} \to \mathbb{C}$, both the input and output are two-dimensional, requiring four dimensions total to represent fully.
 
-In future posts, I'll be writing about:
+**Domain coloring** provides an elegant solution: we plot the domain (the $xy$-plane representing $\mathbb{C} \cong \mathbb{R}^2$) and use color to encode information about the output $f(z)$. Specifically:
 
-- Statistical methods and data analysis
-- R programming and Quarto
-- Research projects and findings
-- Thoughts on faith, life, and learning
+- **Hue** represents the argument (angle) of $f(z)$: $\text{Arg}(f(z)) \in (-\pi, \pi]$
+- **Lightness** represents the modulus (magnitude) of $f(z)$: $|f(z)|$
 
-### Getting Started
+Below, I've visualized the function:
 
-Creating a new blog post is easy! Just:
+$$f(z) = \frac{z^2 + 1}{z^2 - 1}$$
 
-1. Create a new directory in the `posts/` folder
-2. Add an `index.qmd` file with your content
-3. Include YAML frontmatter with title, description, date, and categories
-4. Render your site with `quarto preview` or `quarto render`
+This function has two **roots** at $z = \pm i$ (where the numerator equals zero) and two **poles** at $z = \pm 1$ (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.
 
-Stay tuned for more content!
+```{r 6}
+#| code-fold: true
+#| fig-height: 5
+#| fig-width: 5
+#| warning: false
+#| fig-align: center
+#| dev.args: !expr list(bg = "transparent")
+
+# functions
+modulus <- function(z) Re(sqrt(z * Conj(z)))
+f <- function(z) (z^2 + 1)/(z^2 - 1)
+rad2deg <- function(rad, rotate = 0) ((rad + rotate) * 360/(2*pi)) %% 360
+
+# definitions
+# boundaries
+L <- -2
+U <- 2
+# making mesh
+domain <- seq(L, U, length.out = 1001)
+
+mesh <- expand.grid(domain, domain) |> 
+  mutate("x" = Var1, 
+         "y" = Var2) |> 
+  select(x, y)
+
+# color mapping components
+z <- complex(real = mesh$x, imaginary = mesh$y)
+
+fz <- z |> f()
+
+mod_fz <- fz |> modulus()
+
+# I ended using the second one from the Wikipedia page 
+# and I added a constant to shift the color, as well as
+# a scale of 100 (a = 0.4 too)
+
+a <- 0.4
+ell1 <- (2/pi)*atan(mod_fz) + 65
+ell2 <- (mod_fz^a/(mod_fz^a + 1))/10 + 65 
+ell3 <- 100*mod_fz^a/(mod_fz^a + 1) + 25 # used this one 
+
+# used saturation of 80
+my_colors <- Arg(fz) |>
+  rad2deg() |>
+  cbind(80, ell3) |> 
+  farver::encode_colour(from = "hsl")
+
+df <- cbind(mesh, my_colors) |>
+  as.data.frame()
+
+# plot replica attempt
+df |>
+  ggplot(aes(x, y)) +
+  geom_raster(aes(fill = my_colors)) + 
+  labs(x = "Re(z)", y = "Im(z)") +
+  scale_fill_identity() +
+  coord_equal(xlim = c(-2,2), ylim = c(-2,2)) +
+  theme(
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.background = element_rect(fill = "transparent", color = NA),
+    panel.grid = element_blank(),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white")
+  )
+```
+

@@ -5,20 +5,17 @@ about:
   template: trestles
   links:
     - icon: github
-      text: Github
       href: https://github.com/carsonslater
     - icon: linkedin
-      text: LinkedIn
       href: https://www.linkedin.com/in/carsonslateratbaylor/
     - icon: instagram
-      text: Instagram
       href: https://www.instagram.com/carson.sl8r/
     - icon: bookmark
-      text: Substack
       href: https://honestinference.substack.com
     - icon: envelope
-      text: Email
       href: mailto:carson_slater1@baylor.edu
+    - icon: gift
+      href: https://www.myregistry.com/wishlist/carson-slater-waco-tx/5175247
 ---
 
 ## About Me
