@@ -21,11 +21,11 @@ listing:
       description: "A dark theme based on the Cobalt RStudio theme for Positron (and VS Code)."
       image: images/projects/cobalt.png
       categories: [Positron]
-      path: https://github.com/carsonslater/cobaltpositron
+      path: https://open-vsx.org/extension/CarsonSlater/cobaltpositron
     - title: "giftR"
       description: "A white elephant gift exchange facilitator."
       image: images/projects/giftR.png
-      categories: [R Package]
+      categories: [R Package, Satire]
       path: https://carsonslater.github.io/giftR/
   type: default
   categories: true
