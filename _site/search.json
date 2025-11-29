@@ -39,14 +39,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Below are some of the projects I have worked on."
-  },
-  {
-    "objectID": "projects.html#research-development",
-    "href": "projects.html#research-development",
-    "title": "Projects",
-    "section": "",
-    "text": "Below are some of the projects I have worked on."
+    "text": "Below are some of the projects I have worked on.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles\n\n\n\n\n\n\nNanoparticle Bacterial Inhibition\n\n\nOrdinal Regression\n\n\nGeneralized Linear Mixed Models\n\n\n\nThis paper employs statistical methods to do pairwise comparisons when ANOVA assumptions are egregiously violated.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing Interference with Regression Analysis Techniques\n\n\n\n\n\n\nDynamic Spectrum Access\n\n\nGeneralized Additive Models\n\n\n\nThis work proposes using regression analysis to predict aggregate interference in next-generation Dynamic Spectrum Access (DSA) systems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMo(Wa)²TER Introduction to Data Science Course Material\n\n\n\n\n\n\nData Science\n\n\nR/RStudio\n\n\nWastewater Treatment\n\n\n\nWe used problems in water and wastewater treatment to create a data science course.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCobalt Theme for Positron\n\n\n\n\n\n\nPositron\n\n\n\nA dark theme based on the Cobalt RStudio theme for Positron (and VS Code).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngiftR\n\n\n\n\n\n\nR Package\n\n\nSatire\n\n\n\nA white elephant gift exchange facilitator.\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "cv.html",
