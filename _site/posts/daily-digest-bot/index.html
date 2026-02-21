@@ -247,17 +247,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><img src="daily_digest_sample.png" class="img-fluid"></p>
 <section id="why-i-built-this" class="level2">
 <h2 class="anchored" data-anchor-id="why-i-built-this">Why I Built This</h2>
-<!-- 
-[CARSON: Fill in your preliminary section about why you chose to do this project here. You can discuss the problem of email clutter, the desire for a curated reading experience, etc.]
--->
+<p>Let’s face it. The digital world is growing more complex and attention-seeking. That’s why I love places like Substack. It’s a corner of the internet where long form content continues to live on, but also a place with the flexibilty to curate your reading to feature writers you enjoy. It usually takes at most 10 seconds (often less) to watch a reel, but for a Substack article, you have to dig your heels in and enter their conversation. Rarely have I read a Substack article from a writer I enjoy and thought to myself afterwards, “<em>I think I just caved to brain rot.</em>”</p>
+<p>Lately, I’ve noticed a shift though. As I subscribe to more and more writers, my feed also propogates with more and more ‘notes,’ most of which are from people who I do not know. To put it bluntly, I’ve pretty much determined that notes on Substack are eerily similar to tweets, and I honestly hate that. <strong>It feels as though Substack is becoming a writing-oriented version of Twitter (now X).</strong></p>
+<p>Instead of yielding to the developers of Substack and accepting this change on the platform, or evading Substack entirely, I have found a way to indulge myself in (free) articles by the writers I enjoy, without even logging onto the app, or going on <a href="https://substack.com">substack.com</a>. As a matter of fact, I’ve deleted the app from my phone (I have no app store and can’t download apps without a password my wife and friends have). My alternative to Substack is utilizing a print version of the app, and going analog with Substack.</p>
+<p>This is why I built my daily digest bot, which fetches my feed (of articles, and not notes) from the last 24 hours and compiles them into a PDF at 6:30am every morning. I share this post to help others with technical background escape the temptation to doomscroll our beloved Substack.</p>
 <hr>
 </section>
 <section id="how-i-did-it-the-technical-stack" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-did-it-the-technical-stack">How I Did It: The Technical Stack</h2>
 <p>Building the daily digest was an exercise in stringing together a few very cool tools. The entire workflow is orchestrated in R, connecting a custom feed parser, a third-party print service, and a containerized cloud deployment into a single automated pipeline.</p>
-<p>I wanted a hands-off system that would automatically figure out what I’m subscribed to, find the newest articles, format them elegantly, and email them to me.</p>
+<p>I wanted a hands-off system that would automatically figure out what I’m subscribed to, find the newest articles, format them elegantly, and email them to me. <em>(If you want to jump straight to the full source code, you can find the complete project repository on my GitHub here: <a href="https://github.com/carsonslater/dailydigest">https://github.com/carsonslater/dailydigest</a>)</em></p>
 <p>Here is a breakdown of the four main pillars of the project:</p>
 <section id="extracting-the-subscriptions-the-opml-export" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-the-subscriptions-the-opml-export">1. Extracting the Subscriptions (The OPML Export)</h3>
@@ -343,6 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I then deployed this Docker container to <strong>Render.com</strong> and set it up as a <strong>Cron Job</strong>. A Cron job is just a time-based scheduler that executes scripts at specific intervals. I scheduled it to run every morning.</p>
 <p>When the alarm goes off, Render spins up the container, parses the latest feeds, drives the invisible browser to generate the PDF via Substackprint, shoots me an email, and spins back down.</p>
 <p>It’s completely hands-off. Now, I wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!</p>
+<p>I hope you enjoyed this post. If you’re interested in contributing, you can open up a pull request on my GitHub here: <a href="https://github.com/carsonslater/dailydigest">https://github.com/carsonslater/dailydigest</a>, or you can send me an <a href="mailto:Carson_Slater1@baylor.edu">email</a>.</p>
 
 
 </section>
