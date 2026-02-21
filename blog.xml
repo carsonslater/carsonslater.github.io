@@ -9,8 +9,359 @@
 <link>https://carsonslater.github.io/blog.html</link>
 <atom:link href="https://carsonslater.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 23 Nov 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.27</generator>
+<lastBuildDate>Fri, 20 Feb 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Building a Daily Digest Bot: Automating Substack to PDF</title>
+  <dc:creator>Carson Slater</dc:creator>
+  <link>https://carsonslater.github.io/posts/daily-digest-bot/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://carsonslater.github.io/posts/daily-digest-bot/daily_digest_sample.png" class="img-fluid"></p>
+<section id="why-i-built-this" class="level2">
+<h2 class="anchored" data-anchor-id="why-i-built-this">Why I Built This</h2>
+<p>Let’s face it. The digital world is growing more complex and attention-seeking. That’s why I love places like Substack. It’s a corner of the internet where long form content continues to live on, but also a place with the flexibilty to curate your reading to feature writers you enjoy. It usually takes at most 10 seconds (often less) to watch a reel, but for a Substack article, you have to dig your heels in and enter their conversation. Rarely have I read a Substack article from a writer I enjoy and thought to myself afterwards, “<em>I think I just caved to brain rot.</em>”</p>
+<p>Lately, I’ve noticed a shift though. As I subscribe to more and more writers, my feed also propogates with more and more ‘notes,’ most of which are from people who I do not know. To put it bluntly, I’ve pretty much determined that notes on Substack are eerily similar to tweets, and I honestly hate that. <strong>It feels as though Substack is becoming a writing-oriented version of Twitter (now X).</strong></p>
+<p>Instead of yielding to the developers of Substack and accepting this change on the platform, or evading Substack entirely, I have found a way to indulge myself in (free) articles by the writers I enjoy, without even logging onto the app, or going on <a href="https://substack.com">substack.com</a>. As a matter of fact, I’ve deleted the app from my phone (I have no app store and can’t download apps without a password my wife and friends have). My alternative to Substack is utilizing a print version of the app, and going analog with Substack.</p>
+<p>This is why I built my daily digest bot, which fetches my feed (of articles, and not notes) from the last 24 hours and compiles them into a PDF at 6:30am every morning. I share this post to help others with technical background escape the temptation to doomscroll our beloved Substack.</p>
+<hr>
+</section>
+<section id="how-i-did-it-the-technical-stack" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-did-it-the-technical-stack">How I Did It: The Technical Stack</h2>
+<p>Building the daily digest was an exercise in stringing together a few very cool tools. The entire workflow is orchestrated in R, connecting a custom feed parser, a third-party print service, and a containerized cloud deployment into a single automated pipeline.</p>
+<p>I wanted a hands-off system that would automatically figure out what I’m subscribed to, find the newest articles, format them elegantly, and email them to me. <em>(If you want to jump straight to the full source code, you can find the complete project repository on my GitHub here: <a href="https://github.com/carsonslater/dailydigest">https://github.com/carsonslater/dailydigest</a>)</em></p>
+<p>Here is a breakdown of the four main pillars of the project:</p>
+<section id="extracting-the-subscriptions-the-opml-export" class="level3">
+<h3 class="anchored" data-anchor-id="extracting-the-subscriptions-the-opml-export">1. Extracting the Subscriptions (The OPML Export)</h3>
+<p>The first challenge was getting a dynamic list of every publication I’m subscribed to. If you are not familiar, most blogs and newsletters have an <strong>RSS feed</strong>—a standardized way to distribute content behind the scenes. However, Substack doesn’t offer a clean, native way to export your reading list as a compilation of these RSS feeds.</p>
+<p>To solve this, I used a brilliant <a href="https://gist.githubusercontent.com/lmorchard/f1f2508a9586d8e92efd84686c029f16/raw/07948e353336ad48dd172ec6071d7d653d562c65/substack-to-opml.js">JavaScript snippet by Les Orchard</a>, which runs directly in the browser console. It scrapes your Substack reader interface and outputs a standard <strong>OPML file</strong>.</p>
+<p>For the uninitiated, OPML (Outline Processor Markup Language) is essentially just a structured address book for RSS feeds. It contains the exact <code>htmlUrl</code> for all of your subscriptions in one tidy XML document. By keeping this OPML file in my project directory (<code>substack_subscriptions.opml</code>), the R script can just parse the file to get the URLs. This means I can add new subscriptions seamlessly in the future by just regenerating the OPML file, without ever touching the core R code.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Snippet from daily_digest.R</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(xml2)</span>
+<span id="cb1-3">opml_path <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"substack_subscriptions.opml"</span></span>
+<span id="cb1-4">opml <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_xml</span>(opml_path)</span>
+<span id="cb1-5">opml_links <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(opml, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"//outline[@type='rss']"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_attr</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"htmlUrl"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">keep</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(.x))</span></code></pre></div></div>
+</section>
+<section id="parsing-feeds-filtering-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="parsing-feeds-filtering-in-r">2. Parsing Feeds &amp; Filtering in R</h3>
+<p>Once I had the list of Substack URLs from the OPML file, the script iterates through them to check the corresponding RSS endpoints (<code>/feed</code>).</p>
+<p>Using the <code>xml2</code> and <code>lubridate</code> packages in R, the script reaches out to the RSS endpoints for every publication and downloads the raw data of the feed. It then extracts the individual articles (stored as <code>&lt;item&gt;</code> blocks) and filters the results based on the published date (<code>&lt;pubDate&gt;</code>). Instead of downloading everything, it keeps only the posts that have been published within a rolling 3-day window. This ensures that I only pull the newest content, creating a highly curated, manageable queue of fresh article URLs that are ready for printing.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">rss <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_xml</span>(rss_url)</span>
+<span id="cb2-2">items <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(rss, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".//item"</span>)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (item <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> items) {</span>
+<span id="cb2-5">  pub_date_str <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_text</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_first</span>(item, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".//pubDate"</span>))</span>
+<span id="cb2-6">  pub_date <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">parse_date_time</span>(pub_date_str, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a d b Y H M S"</span>)</span>
+<span id="cb2-7">  </span>
+<span id="cb2-8">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(pub_date) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> pub_date <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> threshold_date) {</span>
+<span id="cb2-9">    post_link <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_text</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_first</span>(item, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".//link"</span>))</span>
+<span id="cb2-10">    all_post_urls <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(all_post_urls, post_link)</span>
+<span id="cb2-11">  }</span>
+<span id="cb2-12">}</span></code></pre></div></div>
+</section>
+<section id="rendering-via-substackprint.com" class="level3">
+<h3 class="anchored" data-anchor-id="rendering-via-substackprint.com">3. Rendering via Substackprint.com</h3>
+<p>Converting standard HTML into a clean, printable PDF is notoriously tricky—especially when dealing with massive, oversized images and weird formatting across various newsletters. Initially, I experimented with complex typesetting engines locally, but that resulted in massive styling headaches.</p>
+<p>Instead, I decided to lean on <a href="https://substackprint.com/">Substackprint.com</a>. It’s a fantastic, specialized tool designed specifically to strip away the digital clutter from Substack posts and elegantly compile them into a beautiful, newspaper-style PDF.</p>
+<p>To automate this without manually copying and pasting URLs every morning, my script passes the filtered lists of Substack URLs directly to Substackprint’s generator using the <a href="https://rstudio.github.io/chromote/"><code>{chromote}</code></a> package.</p>
+<p><code>{chromote}</code> acts as a <strong>headless browser</strong>—meaning it can run Google Chrome in the background without actually popping up a window on your screen, controlled entirely by code. The script uses this invisible browser to load Substackprint, click the “Multi-Publication mode” button, inject my curated list of URLs into the text box, and click the “Go Analog!” submit button.</p>
+<p>Once Substackprint finishes rendering the newspaper on the page, the headless browser captures the final layout and uses Chrome’s native built-in PDF generator to save the gorgeous digest directly to my local drive.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Snippet from helpers/pdf_generator.R</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(chromote)</span>
+<span id="cb3-3">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ChromoteSession<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">new</span>()</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Navigate to tool and inject URLs</span></span>
+<span id="cb3-6">b<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Page<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">navigate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://substackprint.com/"</span>)</span>
+<span id="cb3-7">b<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Runtime<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">evaluate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"document.getElementById('pub-mode-multi').click();"</span>)</span>
+<span id="cb3-8"></span>
+<span id="cb3-9">urls_string <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(post_urls, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">collapse =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb3-10">b<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Runtime<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">evaluate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glue</span>(</span>
+<span id="cb3-11">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"document.getElementById('substack-urls').value = `{urls_string}`;"</span></span>
+<span id="cb3-12">))</span>
+<span id="cb3-13"></span>
+<span id="cb3-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate and save PDF</span></span>
+<span id="cb3-15">b<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Runtime<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">evaluate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"document.querySelector('#substack-form button[type=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">submit</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]').click();"</span>)</span>
+<span id="cb3-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ... polling to wait for generation ...</span></span>
+<span id="cb3-17">pdf_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> b<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Page<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">printToPDF</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">printBackground =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">marginTop =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">marginBottom =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb3-18"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">writeBin</span>(jsonlite<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">base64_dec</span>(pdf_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>data), output_path)</span></code></pre></div></div>
+</section>
+<section id="automated-email-delivery" class="level3">
+<h3 class="anchored" data-anchor-id="automated-email-delivery">4. Automated Email Delivery</h3>
+<p>Generating a beautiful PDF is great, but to make this a true “daily digest,” I needed it to arrive in my inbox automatically while I was waking up.</p>
+<p>For email delivery, I used the <a href="https://rstudio.github.io/blastula/"><code>{blastula}</code></a> package in R. <code>{blastula}</code> makes it incredibly easy to compose an email body, attach the compiled PDF, and securely dispatch it via <strong>SMTP</strong>.</p>
+<p>SMTP (Simple Mail Transfer Protocol) is the standard protocol that email servers use to send messages across the internet. By plugging in my email provider’s SMTP credentials directly into the script, R can securely send the email attachment just as if I were logging into Gmail myself.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Snippet from helpers/email_sender.R</span></span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(blastula)</span>
+<span id="cb4-3"></span>
+<span id="cb4-4">email_obj <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">compose_email</span>(</span>
+<span id="cb4-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">body =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">md</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Here is your favorite Substack writer's latest work..."</span>),</span>
+<span id="cb4-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">footer =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">md</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Generated via substackprint.com and R automation."</span>)</span>
+<span id="cb4-7">)</span>
+<span id="cb4-8">email_obj <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_attachment</span>(email_obj, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> pdf_path)</span>
+<span id="cb4-9"></span>
+<span id="cb4-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">smtp_send</span>(</span>
+<span id="cb4-11">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">email =</span> email_obj,</span>
+<span id="cb4-12">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> config<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>email<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>from,</span>
+<span id="cb4-13">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">to =</span> config<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>email<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>to,</span>
+<span id="cb4-14">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">credentials =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">creds_envvar</span>(...)</span>
+<span id="cb4-15">)</span></code></pre></div></div>
+</section>
+<section id="containerization-and-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="containerization-and-deployment">5. Containerization and Deployment</h3>
+<p>A daily digest isn’t very useful if I have to run the R script manually every morning. The final piece of the puzzle was scheduling this automation to run in the cloud.</p>
+<p>If I just uploaded my code to a random cloud server, it might fail because the server lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a <strong>Docker container</strong>. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies (like R packages and headless Chrome) so it runs identically anywhere.</p>
+<p>I then deployed this Docker container to <strong>Render.com</strong> and set it up as a <strong>Cron Job</strong>. A Cron job is just a time-based scheduler that executes scripts at specific intervals. I scheduled it to run every morning.</p>
+<p>When the alarm goes off, Render spins up the container, parses the latest feeds, drives the invisible browser to generate the PDF via Substackprint, shoots me an email, and spins back down.</p>
+<p>It’s completely hands-off. Now, I wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!</p>
+<p>I hope you enjoyed this post. If you’re interested in contributing, you can open up a pull request on my GitHub here: <a href="https://github.com/carsonslater/dailydigest">https://github.com/carsonslater/dailydigest</a>, or you can send me an <a href="mailto:Carson_Slater1@baylor.edu">email</a>.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>Automation</category>
+  <category>Docker</category>
+  <guid>https://carsonslater.github.io/posts/daily-digest-bot/</guid>
+  <pubDate>Fri, 20 Feb 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Coming Soon</title>
   <dc:creator>Carson Slater</dc:creator>
