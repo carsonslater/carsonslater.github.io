@@ -9,9 +9,14 @@ categories: [R, Automation, Docker]
 ![](daily_digest_sample.png)
 
 ## Why I Built This
-<!-- 
-[CARSON: Fill in your preliminary section about why you chose to do this project here. You can discuss the problem of email clutter, the desire for a curated reading experience, etc.]
--->
+
+Let's face it. The digital world is growing more complex and attention-seeking. That's why I love places like Substack. It's a corner of the internet where long form content continues to live on, but also a place with the flexibilty to curate your reading to feature writers you enjoy. It usually takes at most 10 seconds (often less) to watch a reel, but for a Substack article, you have to dig your heels in and enter their conversation. Rarely have I read a Substack article from a writer I enjoy and thought to myself afterwards, "*I think I just caved to brain rot.*" 
+
+Lately, I've noticed a shift though. As I subscribe to more and more writers, my feed also propogates with more and more 'notes,' most of which are from people who I do not know. To put it bluntly, I've pretty much determined that notes on Substack are eerily similar to tweets, and I honestly hate that. **It feels as though Substack is becoming a writing-oriented version of Twitter (now X).**
+
+Instead of yielding to the developers of Substack and accepting this change on the platform, or evading Substack entirely, I have found a way to indulge myself in (free) articles by my writers I enjoy, without even logging onto the app, or going on [substack.com](https://substack.com). As a matter of fact, I've deleted the app from my phone (I have no app store and can't download apps without a password my wife and friends have). My alternative to Substack is utilizing a print version of the app, and going analog with Substack.
+
+This is why I built my daily digest bot, which fetches my feed (of articles, and not notes) from the last 24 hours and compiles them into a PDF at 6:30am every morning. I share this post to help others with technical background escape the temptation to doomscroll our beloved Substack.
 
 ***
 
