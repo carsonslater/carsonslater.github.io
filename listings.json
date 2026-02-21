@@ -1,13 +1,13 @@
 [
   {
-    "listing": "/projects.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/daily-digest-bot/index.html",
       "/posts/welcome-post/index.html"
     ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
   }
 ]
