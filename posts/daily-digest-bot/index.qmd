@@ -130,12 +130,45 @@ smtp_send(
 
 A daily digest isn't very useful if I have to run the R script manually every morning. The final piece of the puzzle was scheduling this automation to run autonomously.
 
-If I simply moved my code to another machine, it might fail because that hardware lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a **Docker container**. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies (like R packages and headless Chrome) so it runs identically anywhere.
+If I simply moved my code to another machine, it might fail because that hardware lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a **Docker container**. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies so it runs identically anywhere.
 
-For the actual deployment, I repurposed a spare Mac Mini provided by my job that I rarely used for anything else. I loaded the Docker container onto the Mac Mini, where the container itself is configured to run a **Cron Job**—a time-based scheduler that executes scripts at specific intervals—triggering the pipeline every morning. Because the container is perpetually running, the cron daemon inside it just waits for the scheduled time. To ensure the Mac Mini doesn't go to sleep and disrupt the container, I keep it perpetually awake using the macOS `caffeinate` terminal command. 
+Because `{chromote}` requires a headless browser to generate the PDF via Substackprint, the container cannot just run R; it must also have Google Chrome fully installed. When I built the `Dockerfile`, the trickiest part was ensuring the system dependencies were perfectly configured to run Chrome invisibly without sandboxing errors.
 
-Now, when the alarm goes off, the cron job inside the continuously-running container triggers the R script to parse the latest feeds, drive the invisible browser to generate the PDF via Substackprint, and shoot me an email. 
+Here is the crux of the `Dockerfile` that makes this all possible:
 
-It's completely hands-off. Now, I wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!
+```dockerfile
+# Start with a standard base R image setup
+FROM rocker/tidyverse:latest
+
+# Install Linux system dependencies for `{blastula}` (crypto, SSL) and `{xml2}`
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget gnupg libxml2-dev libssl-dev libcurl4-openssl-dev \
+    zlib1g-dev libfontconfig1 libxt6 && rm -rf /var/lib/apt/lists/*
+
+# Download and install Google Chrome explicitly for `{chromote}` to use
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ debian main" > /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
+    google-chrome-stable && rm -rf /var/lib/apt/lists/*
+
+# Copy project files and install target R packages via setup.R
+WORKDIR /app
+COPY . .
+RUN Rscript setup.R
+
+# Crucial Environment Variables: Tell `{chromote}` exactly where to find Chrome
+# and disable the sandbox so it can execute smoothly inside a Docker container
+ENV CHROMOTE_CHROME=/usr/bin/google-chrome-stable
+ENV CHROMOTE_CHROME_ARGS="--no-sandbox --disable-dev-shm-usage --headless"
+
+# Point the container entry command to the target script
+CMD ["Rscript", "daily_digest.R"]
+```
+
+The real *"aha!"* moment is the bottom section with `ENV CHROMOTE_CHROME_ARGS`. Because Docker containers isolate their processes, running an entire browser inside them can lead to bizarre memory allocation issues and permission errors. Flags like `--no-sandbox` and `--disable-dev-shm-usage` are critical requirements to keep the invisible browser from crashing during the heavy lifting of the PDF generation step.
+
+For the actual deployment, I repurposed a spare, headless Mac Mini provided by my job. Rather than running a persistent daemon *inside* the container, I let the host machine handle the scheduling. I set up the Mac Mini's local `cron` tab to run a simple shell task at 6:30 AM every morning that executes `docker run` on my image. The container spins up, does its job, and gracefully exits. To ensure the Mac Mini doesn't inadvertently go to sleep and skip the cron job, I keep it perpetually awake using the macOS `caffeinate` terminal command. 
+
+Now, when the morning alarm finally goes off, the Mac Mini spins up the lightweight container, Chrome renders the PDF via Substackprint in the background, and `{blastula}` shoots the final product straight to my email inbox. It's completely hands-off—allowing me to wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!
 
 I hope you enjoyed this post. If you're interested in contributing, you can open up a pull request on my GitHub here: [https://github.com/carsonslater/dailydigest](https://github.com/carsonslater/dailydigest), or you can send me an [email](mailto:Carson_Slater1@baylor.edu).
