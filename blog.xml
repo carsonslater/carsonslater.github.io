@@ -9,8 +9,8 @@
 <link>https://carsonslater.github.io/blog.html</link>
 <atom:link href="https://carsonslater.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.27</generator>
-<lastBuildDate>Fri, 20 Feb 2026 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Fri, 20 Feb 2026 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Building a Daily Digest Bot: Automating Substack to PDF</title>
   <dc:creator>Carson Slater</dc:creator>
@@ -39,7 +39,7 @@
 <p>The first challenge was getting a dynamic list of every publication I’m subscribed to. If you are not familiar, most blogs and newsletters have an <strong>RSS feed</strong>—a standardized way to distribute content behind the scenes. However, Substack doesn’t offer a clean, native way to export your reading list as a compilation of these RSS feeds.</p>
 <p>To solve this, I used a brilliant <a href="https://gist.githubusercontent.com/lmorchard/f1f2508a9586d8e92efd84686c029f16/raw/07948e353336ad48dd172ec6071d7d653d562c65/substack-to-opml.js">JavaScript snippet by Les Orchard</a>, which runs directly in the browser console. It scrapes your Substack reader interface and outputs a standard <strong>OPML file</strong>.</p>
 <p>OPML (Outline Processor Markup Language) is essentially just a structured address book for RSS feeds. It contains the exact <code>htmlUrl</code> for all of your subscriptions in one tidy XML document. By keeping this OPML file in my project directory (<code>substack_subscriptions.opml</code>), the R script can just parse the file to get the URLs. This means I can add new subscriptions seamlessly in the future by just regenerating the OPML file, without ever touching the core R code.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Snippet from daily_digest.R</span></span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
@@ -79,13 +79,13 @@ font-style: inherit;">~</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">is.na</span>(.x))</span></code></pre></div></div>
+font-style: inherit;">is.na</span>(.x))</span></code></pre></div>
 </section>
 <section id="parsing-feeds-filtering-in-r" class="level3">
 <h3 class="anchored" data-anchor-id="parsing-feeds-filtering-in-r">2. Parsing Feeds &amp; Filtering in R</h3>
 <p>Once I had the list of Substack URLs from the OPML file, the script iterates through them to check the corresponding RSS endpoints (<code>/feed</code>).</p>
 <p>Using the <code>xml2</code> and <code>lubridate</code> packages in R, the script reaches out to the RSS endpoints for every publication and downloads the raw data of the feed. It then extracts the individual articles (stored as <code>&lt;item&gt;</code> blocks) and filters the results based on the published date (<code>&lt;pubDate&gt;</code>). Instead of downloading everything, it keeps only the posts that have been published within the last 24 hours. This ensures that I only pull the newest content, creating a highly curated, manageable queue of fresh article URLs that are ready for printing.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">rss <span class="ot" style="color: #003B4F;
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">rss <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -100,10 +100,8 @@ font-style: inherit;">".//item"</span>)</span>
 <span id="cb2-3"></span>
 <span id="cb2-4"><span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">for</span> (item <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">in</span> items) {</span>
 <span id="cb2-5">  pub_date_str <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -124,7 +122,6 @@ font-style: inherit;">"a d b Y H M S"</span>)</span>
 <span id="cb2-7">  </span>
 <span id="cb2-8">  <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -149,7 +146,7 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(all_post_urls, post_link)</span>
 <span id="cb2-11">  }</span>
-<span id="cb2-12">}</span></code></pre></div></div>
+<span id="cb2-12">}</span></code></pre></div>
 </section>
 <section id="rendering-via-substackprint.com" class="level3">
 <h3 class="anchored" data-anchor-id="rendering-via-substackprint.com">3. Rendering via Substackprint.com</h3>
@@ -158,7 +155,7 @@ font-style: inherit;">c</span>(all_post_urls, post_link)</span>
 <p>To automate this without manually copying and pasting URLs every morning, my script passes the filtered lists of Substack URLs directly to Substackprint’s generator using the <a href="https://rstudio.github.io/chromote/"><code>{chromote}</code></a> package.</p>
 <p><code>{chromote}</code> acts as a <strong>headless browser</strong>—meaning it can run Google Chrome in the background without actually popping up a window on your screen, controlled entirely by code. The script uses this invisible browser to load Substackprint, click the “Multi-Publication mode” button, inject my curated list of URLs into the text box, and click the “Go Analog!” submit button.</p>
 <p>Once Substackprint finishes rendering the newspaper on the page, the headless browser captures the final layout and uses Chrome’s native built-in PDF generator to save the gorgeous digest directly to my local drive.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Snippet from helpers/pdf_generator.R</span></span>
 <span id="cb3-2"><span class="fu" style="color: #4758AB;
@@ -273,14 +270,14 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">base64_dec</span>(pdf_data<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>data), output_path)</span></code></pre></div></div>
+font-style: inherit;">$</span>data), output_path)</span></code></pre></div>
 </section>
 <section id="automated-email-delivery" class="level3">
 <h3 class="anchored" data-anchor-id="automated-email-delivery">4. Automated Email Delivery</h3>
 <p>Generating a beautiful PDF is great, but to make this a true “daily digest,” I needed it to arrive in my inbox automatically while I was waking up.</p>
 <p>For email delivery, I used the <a href="https://rstudio.github.io/blastula/"><code>{blastula}</code></a> package in R. <code>{blastula}</code> makes it incredibly easy to compose an email body, attach the compiled PDF, and securely dispatch it via <strong>SMTP</strong>.</p>
 <p>SMTP (Simple Mail Transfer Protocol) is the standard protocol that email servers use to send messages across the internet. By plugging in my email provider’s SMTP credentials directly into the script, R can securely send the email attachment just as if I were logging into Gmail myself.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Snippet from helpers/email_sender.R</span></span>
 <span id="cb4-2"><span class="fu" style="color: #4758AB;
@@ -340,15 +337,153 @@ background-color: null;
 font-style: inherit;">credentials =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">creds_envvar</span>(...)</span>
-<span id="cb4-15">)</span></code></pre></div></div>
+<span id="cb4-15">)</span></code></pre></div>
 </section>
 <section id="containerization-and-deployment" class="level3">
 <h3 class="anchored" data-anchor-id="containerization-and-deployment">5. Containerization and Deployment</h3>
 <p>A daily digest isn’t very useful if I have to run the R script manually every morning. The final piece of the puzzle was scheduling this automation to run autonomously.</p>
-<p>If I simply moved my code to another machine, it might fail because that hardware lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a <strong>Docker container</strong>. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies (like R packages and headless Chrome) so it runs identically anywhere.</p>
-<p>For the actual deployment, I repurposed a spare Mac Mini provided by my job that I rarely used for anything else. I loaded the Docker container onto the Mac Mini, where the container itself is configured to run a <strong>Cron Job</strong>—a time-based scheduler that executes scripts at specific intervals—triggering the pipeline every morning. Because the container is perpetually running, the cron daemon inside it just waits for the scheduled time. To ensure the Mac Mini doesn’t go to sleep and disrupt the container, I keep it perpetually awake using the macOS <code>caffeinate</code> terminal command.</p>
-<p>Now, when the alarm goes off, the cron job inside the continuously-running container triggers the R script to parse the latest feeds, drive the invisible browser to generate the PDF via Substackprint, and shoot me an email.</p>
-<p>It’s completely hands-off. Now, I wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!</p>
+<p>If I simply moved my code to another machine, it might fail because that hardware lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a <strong>Docker container</strong>. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies so it runs identically anywhere.</p>
+<p>Because <code>{chromote}</code> requires a headless browser to generate the PDF via Substackprint, the container cannot just run R; it must also have Google Chrome fully installed. When I built the <code>Dockerfile</code>, the trickiest part was ensuring the system dependencies were perfectly configured to run Chrome invisibly without sandboxing errors.</p>
+<p>Here is the crux of the <code>Dockerfile</code> that makes this all possible:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Start with a standard base R image setup</span></span>
+<span id="cb5-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> rocker/tidyverse:latest</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Install Linux system dependencies for `{blastula}` (crypto, SSL) and `{xml2}`</span></span>
+<span id="cb5-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">RUN</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">apt-get</span> update <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">apt-get</span> install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-y</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-install-recommends</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-6">    wget gnupg libxml2-dev libssl-dev libcurl4-openssl-dev <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-7">    zlib1g-dev libfontconfig1 libxt6 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rm</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-rf</span> /var/lib/apt/lists/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb5-8"></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Download and install Google Chrome explicitly for `{chromote}` to use</span></span>
+<span id="cb5-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">RUN</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">wget</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-q</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-O</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-</span> https://dl-ssl.google.com/linux/linux_signing_key.pub <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">apt-key</span> add <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-11">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ debian main"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> /etc/apt/sources.list.d/google-chrome.list <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-12">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">apt-get</span> update <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">apt-get</span> install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-y</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-install-recommends</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-13">    google-chrome-stable <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rm</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-rf</span> /var/lib/apt/lists/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb5-14"></span>
+<span id="cb5-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Copy project files and install target R packages via setup.R</span></span>
+<span id="cb5-16"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">WORKDIR</span> /app</span>
+<span id="cb5-17"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">COPY</span> . .</span>
+<span id="cb5-18"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">RUN</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Rscript</span> setup.R</span>
+<span id="cb5-19"></span>
+<span id="cb5-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Crucial Environment Variables: Tell `{chromote}` exactly where to find Chrome</span></span>
+<span id="cb5-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># and disable the sandbox so it can execute smoothly inside a Docker container</span></span>
+<span id="cb5-22"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ENV</span> CHROMOTE_CHROME=/usr/bin/google-chrome-stable</span>
+<span id="cb5-23"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ENV</span> CHROMOTE_CHROME_ARGS=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--no-sandbox --disable-dev-shm-usage --headless"</span></span>
+<span id="cb5-24"></span>
+<span id="cb5-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Point the container entry command to the target script</span></span>
+<span id="cb5-26"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CMD</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Rscript"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"daily_digest.R"</span>]</span></code></pre></div>
+<p>The real <em>“aha!”</em> moment is the bottom section with <code>ENV CHROMOTE_CHROME_ARGS</code>. Because Docker containers isolate their processes, running an entire browser inside them can lead to bizarre memory allocation issues and permission errors. Flags like <code>--no-sandbox</code> and <code>--disable-dev-shm-usage</code> are critical requirements to keep the invisible browser from crashing during the heavy lifting of the PDF generation step.</p>
+<p>For the actual deployment, I repurposed a spare, headless Mac Mini provided by my job. Rather than running a persistent daemon <em>inside</em> the container, I let the host machine handle the scheduling. I set up the Mac Mini’s local <code>cron</code> tab to run a simple shell task at 6:30 AM every morning that executes <code>docker run</code> on my image. The container spins up, does its job, and gracefully exits. To ensure the Mac Mini doesn’t inadvertently go to sleep and skip the cron job, I keep it perpetually awake using the macOS <code>caffeinate</code> terminal command.</p>
+<p>Now, when the morning alarm finally goes off, the Mac Mini spins up the lightweight container, Chrome renders the PDF via Substackprint in the background, and <code>{blastula}</code> shoots the final product straight to my email inbox. It’s completely hands-off—allowing me to wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!</p>
 <p>I hope you enjoyed this post. If you’re interested in contributing, you can open up a pull request on my GitHub here: <a href="https://github.com/carsonslater/dailydigest">https://github.com/carsonslater/dailydigest</a>, or you can send me an <a href="mailto:Carson_Slater1@baylor.edu">email</a>.</p>
 
 
@@ -360,7 +495,7 @@ font-style: inherit;">creds_envvar</span>(...)</span>
   <category>Automation</category>
   <category>Docker</category>
   <guid>https://carsonslater.github.io/posts/daily-digest-bot/</guid>
-  <pubDate>Fri, 20 Feb 2026 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 20 Feb 2026 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Coming Soon</title>
@@ -386,14 +521,13 @@ font-style: inherit;">creds_envvar</span>(...)</span>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># functions</span></span>
 <span id="cb1-2">modulus <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(z) <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Re</span>(<span class="fu" style="color: #4758AB;
@@ -407,7 +541,6 @@ font-style: inherit;">Conj</span>(z)))</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(z) (z<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
@@ -431,7 +564,6 @@ font-style: inherit;">1</span>)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(rad, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rotate =</span> <span class="dv" style="color: #AD0000;
@@ -778,7 +910,7 @@ background-color: null;
 font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"white"</span>)</span>
-<span id="cb1-56">  )</span></code></pre></div></div>
+<span id="cb1-56">  )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -795,7 +927,7 @@ font-style: inherit;">"white"</span>)</span>
  ]]></description>
   <category>news</category>
   <guid>https://carsonslater.github.io/posts/welcome-post/</guid>
-  <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Nov 2025 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
