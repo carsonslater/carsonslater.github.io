@@ -1,5 +1,5 @@
 ---
-title: "Carson Slater"
+title: ""
 image: images/avatar4.png
 about:
   template: jolla
