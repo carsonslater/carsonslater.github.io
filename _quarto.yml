@@ -43,4 +43,6 @@ format:
   html:
     theme: superhero
     css: styles.css
+    mainfont: "Spectral"
+    monofont: "JetBrains Mono"
     toc: true

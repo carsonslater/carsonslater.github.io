@@ -2,7 +2,7 @@
 title: "Carson Slater"
 image: images/avatar4.png
 about:
-  template: trestles
+  template: jolla
   links:
     - icon: github
       href: https://github.com/carsonslater
