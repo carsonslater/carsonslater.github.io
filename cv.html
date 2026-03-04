@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6fc75da4b675ae8bdfc69075d027a37b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-bdaaf18e8743904a7907224d0024b0e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Curriculum Vitae – Carson Slater">
@@ -179,8 +208,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="carson-slater" class="level1">
-<h1>Carson Slater</h1>
 <div class="grid">
 <div class="g-col-4 cv-sidebar">
 <section id="contact" class="level2">
@@ -192,29 +219,33 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="education" class="level2">
 <h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><strong>Ph.D., Statistical Science</strong><br>
-Baylor University<br>
-<em>2024–Pending</em></p>
+<p><strong>PhD, Statistical Science</strong><br>
+Baylor University | <em>2024–2027 [Expected]</em><br>
+Research: Developing statistical methods for time series clustering with applications in urban water distribution processes.</p>
 <p><strong>M.S., Statistical Science</strong><br>
-Baylor University<br>
-<em>2023–2024</em></p>
-<p><strong>B.S., Applied Math / B.A., Econ</strong><br>
-Wheaton College<br>
-<em>2019–2023</em><br>
-<em>Edman Presidential Scholarship</em></p>
+Baylor University | <em>2023–2024</em><br>
+GPA: 3.86/4.0</p>
+<p><strong>B.S., Applied Mathematics with Statistics</strong><br>
+<strong>B.A., Economics</strong><br>
+Wheaton College (IL) | <em>2019–2023</em><br>
+GPA: 3.46/4.0, <em>Edman Presidential Scholarship</em><br>
+<em>Varsity Baseball Athlete (NCAA-DIII)</em></p>
 </section>
 <section id="skills" class="level2">
 <h2 class="anchored" data-anchor-id="skills">Skills</h2>
-<p><strong>Tools</strong><br>
-Docker, RStudio, Git/GitHub, reveal.js, Positron</p>
-<p><strong>Languages</strong><br>
-R, JAGS/Stan, Python, C, SAS, Stata, SQL, zsh, LaTeX, JS, CSS, HTML</p>
+<p><strong>Technology</strong><br>
+Docker, Positron (<span class="math inline">\(\approx\)</span> VS Code), Git/Github, reveal.js, R/RStudio, SQL, duckDB, </p>
+<p><strong>Python</strong><br>
+pandas, numpy, PyTorch (Lightning), plotnine, seaborn, plotly, scikit-learn, Jupyter</p>
+<p><strong>R</strong><br>
+tidyverse (dplyr, ggplot2, etc.), TensorFlow (Keras), torch, shiny, RMarkdown/Quarto, rstan, rjags, caret, tidymodels, targets (gittargets, proffer, etc.)</p>
+<p><strong>Stats &amp; ML</strong><br>
+statistical modeling, hypothesis testing, mixture models, time series, regression, linear mixed models, clustering, classification, deep learning, PCA, random forests, ensemble models (e.g., XGBoost), SVM, Bayesian methods, spatiotemporal modeling</p>
+<p><strong>Coursework</strong><br>
+Statistical Bioinformatics, Deep Learning, Bayesian Methods, Bayesian Theory, Survival Analysis, Time Series, Theory of Statistics, Statistical Methods, Computational Statistics, Numerical Analysis, Linear Algebra for Data Analysis, Mathematical Statistics, Machine Learning, Probability Theory, Real Analysis, Intensive Introduction to Computer Science (Harvard), Econometrics, Economics of Labor and Poverty</p>
 </section>
 <section id="misc." class="level2">
 <h2 class="anchored" data-anchor-id="misc.">Misc.</h2>
-<p><strong>Varsity Baseball Player</strong><br>
-Wheaton College<br>
-<em>2019–2022</em></p>
 <p><strong>Christian Character Award</strong><br>
 Valley Christian HS<br>
 <em>2019</em></p>
@@ -229,41 +260,35 @@ Valley Christian HS<br>
 <h2 class="anchored" data-anchor-id="experience">Experience</h2>
 <section id="research-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="research-assistant">Research Assistant</h3>
-<p><strong>Baylor University</strong> | <em>Jan 2024–Present</em></p>
+<p><strong>Baylor University</strong> | Waco, TX | <em>Jan 2024–Present</em></p>
 <ul>
-<li>Conducts research with Dr.&nbsp;Mandy Hering with collaborators in urban water treatment and infrastructure.</li>
+<li>Developing statistical methods for urban water distribution processes, leveraging unsupervised learning on time series for customer-level water utility data ($$200k homes in Denver, CO).</li>
+<li>Collaborated with domain experts in urban water demand planning to comprehend data and processes, perform robust analyses, and effectively communicate results.</li>
+<li>Developed R Shiny dashboard to enable collaborators at Denver Water to visualize the outdoor irrigation trends for customers with advanced metering infrastructure.</li>
+<li>Edited and reviewed material for an undergraduate intro to data science course. (<a href="https://doi.org/10.7910/DVN/BZJW2E">DOI: 10.7910/DVN/BZJW2E</a>)</li>
 </ul>
 </section>
 <section id="graduate-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="graduate-assistant">Graduate Assistant</h3>
-<p><strong>Baylor University</strong> | <em>Aug 2023–Dec 2024</em></p>
+<p><strong>Baylor University</strong> | Waco, TX | <em>Aug 2023–Dec 2025</em></p>
 <ul>
-<li>Collaborated in the Statistical Consulting Center on interdisciplinary research.</li>
-<li>TA for Computational Statistics (STA 4373/5373/6375).</li>
-<li>Led four supplemental instruction sessions weekly for Introduction to Statistical Methods (STA 2381).</li>
+<li>Consulted for ongoing interdisciplinary research in the computer engineering and environmental science departments, and for the American Holistic Nursing Association. Published academic projects in peer-reviewed journals.</li>
+<li>Delivered quality reports for each client and had regular meetings to discuss the project, the methodology and results.</li>
+<li>Teaching assistant for Computational Statistics (R).</li>
 </ul>
 </section>
 <section id="academic-coach" class="level3">
 <h3 class="anchored" data-anchor-id="academic-coach">Academic Coach</h3>
-<p><strong>Wheaton Academy Center for Lifelong Learning</strong> | <em>Jan 2023–Mar 2023</em></p>
+<p><strong>Wheaton Academy Center for Lifelong Learning</strong> | West Chicago, IL | <em>Jan 2023–May 2023</em></p>
 <ul>
-<li>Taught and reviewed mathematics with students ranging from Algebra I to AP Statistics.</li>
+<li>Mentored students 1-on-1 to sharpen math skills from Algebra I to AP Statistics.</li>
 </ul>
 </section>
 <section id="mathematics-teaching-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="mathematics-teaching-assistant">Mathematics Teaching Assistant</h3>
-<p><strong>Wheaton College</strong> | <em>Aug 2022–May 2023</em></p>
+<p><strong>Wheaton College</strong> | Wheaton, IL | <em>Aug 2022–May 2023</em></p>
 <ul>
-<li>TA for Applied Machine Learning (MATH 465) and Probability Theory (MATH 363).</li>
-<li>Graded weekly assignments and hosted help sessions.</li>
-</ul>
-</section>
-<section id="participant" class="level3">
-<h3 class="anchored" data-anchor-id="participant">Participant</h3>
-<p><strong>Duke/NCSU Summer Institute for Biostatistics</strong> | <em>Jun 2022–Jul 2022</em></p>
-<ul>
-<li>Participated in biostatistics coursework at Duke Clinical Research Institute and NC State.</li>
-<li>Completed a hackathon on myocardial infarction modeling. <a href="https://github.com/carsonslater/sibs_summer2022">GitHub</a></li>
+<li>Facilitated help sessions for undergraduate students in the topics of Machine Learning and Probability Theory.</li>
 </ul>
 </section>
 </section>
@@ -301,7 +326,6 @@ Valley Christian HS<br>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

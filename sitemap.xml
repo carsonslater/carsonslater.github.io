@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carsonslater.github.io/projects.html</loc>
-    <lastmod>2026-02-23T20:50:35.387Z</lastmod>
-  </url>
-  <url>
     <loc>https://carsonslater.github.io/cv.html</loc>
-    <lastmod>2026-02-23T20:50:35.297Z</lastmod>
+    <lastmod>2026-03-04T16:22:33.471Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/posts/welcome-post/index.html</loc>
-    <lastmod>2026-02-23T20:50:35.387Z</lastmod>
-  </url>
-  <url>
-    <loc>https://carsonslater.github.io/index.html</loc>
-    <lastmod>2026-02-23T20:50:35.377Z</lastmod>
-  </url>
-  <url>
-    <loc>https://carsonslater.github.io/posts/daily-digest-bot/index.html</loc>
-    <lastmod>2026-02-23T20:50:35.387Z</lastmod>
+    <lastmod>2026-03-04T16:22:33.563Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/blog.html</loc>
-    <lastmod>2026-02-23T20:50:35.296Z</lastmod>
+    <lastmod>2026-03-04T16:22:33.471Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/index.html</loc>
+    <lastmod>2026-03-04T16:22:33.552Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/posts/daily-digest-bot/index.html</loc>
+    <lastmod>2026-03-04T16:22:33.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/projects.html</loc>
+    <lastmod>2026-03-04T16:22:33.563Z</lastmod>
   </url>
 </urlset>
