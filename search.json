@@ -1,38 +1,17 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBuilding a Daily Digest Bot: Automating Substack to PDF\n\n\n\n\n\n\nR\n\n\nAutomation\n\n\nDocker\n\n\n\nHow I built an automated pipeline in R to curate, format, and deliver my favorite Substack newsletters as a daily printable newspaper.\n\n\n\n\n\nFeb 20, 2026\n\n\nCarson Slater\n\n\n\n\n\n\n\n\n\n\n\n\nComing Soon\n\n\n\n\n\n\nnews\n\n\n\nStay tuned for more content!\n\n\n\n\n\nNov 23, 2025\n\n\nCarson Slater\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Carson Slater",
     "section": "",
-    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world."
+    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am leveraging and adapting unsupervised learnings methods for processing and understanding consumer behavior with respect to water utility usage. My research revolves around turning time series data into actionable insights for water utilities through clustering and anomaly detection."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
     "title": "Carson Slater",
     "section": "",
-    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world."
-  },
-  {
-    "objectID": "posts/welcome-post/index.html",
-    "href": "posts/welcome-post/index.html",
-    "title": "Coming Soon",
-    "section": "",
-    "text": "In the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in…"
-  },
-  {
-    "objectID": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
-    "href": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
-    "title": "Coming Soon",
-    "section": "Visualizing Complex Functions with Domain Coloring",
-    "text": "Visualizing Complex Functions with Domain Coloring\nOne of the challenges of working with complex-valued functions is that they’re difficult to visualize. For a real-valued function \\(f: \\mathbb{R} \\to \\mathbb{R}\\), we can easily plot it on a 2D graph. But for a complex function \\(f: \\mathbb{C} \\to \\mathbb{C}\\), both the input and output are two-dimensional, requiring four dimensions total to represent fully.\nDomain coloring provides an elegant solution: we plot the domain (the \\(xy\\)-plane representing \\(\\mathbb{C} \\cong \\mathbb{R}^2\\)) and use color to encode information about the output \\(f(z)\\). Specifically:\n\nHue represents the argument (angle) of \\(f(z)\\): \\(\\text{Arg}(f(z)) \\in (-\\pi, \\pi]\\)\nLightness represents the modulus (magnitude) of \\(f(z)\\): \\(|f(z)|\\)\n\nBelow, I’ve visualized the function:\n\\[f(z) = \\frac{z^2 + 1}{z^2 - 1}\\]\nThis function has two roots at \\(z = \\pm i\\) (where the numerator equals zero) and two poles at \\(z = \\pm 1\\) (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.\n\n\nCode\n# functions\nmodulus &lt;- function(z) Re(sqrt(z * Conj(z)))\nf &lt;- function(z) (z^2 + 1)/(z^2 - 1)\nrad2deg &lt;- function(rad, rotate = 0) ((rad + rotate) * 360/(2*pi)) %% 360\n\n# definitions\n# boundaries\nL &lt;- -2\nU &lt;- 2\n# making mesh\ndomain &lt;- seq(L, U, length.out = 1001)\n\nmesh &lt;- expand.grid(domain, domain) |&gt; \n  mutate(\"x\" = Var1, \n         \"y\" = Var2) |&gt; \n  select(x, y)\n\n# color mapping components\nz &lt;- complex(real = mesh$x, imaginary = mesh$y)\n\nfz &lt;- z |&gt; f()\n\nmod_fz &lt;- fz |&gt; modulus()\n\n# I ended using the second one from the Wikipedia page \n# and I added a constant to shift the color, as well as\n# a scale of 100 (a = 0.4 too)\n\na &lt;- 0.4\nell1 &lt;- (2/pi)*atan(mod_fz) + 65\nell2 &lt;- (mod_fz^a/(mod_fz^a + 1))/10 + 65 \nell3 &lt;- 100*mod_fz^a/(mod_fz^a + 1) + 25 # used this one \n\n# used saturation of 80\nmy_colors &lt;- Arg(fz) |&gt;\n  rad2deg() |&gt;\n  cbind(80, ell3) |&gt; \n  farver::encode_colour(from = \"hsl\")\n\ndf &lt;- cbind(mesh, my_colors) |&gt;\n  as.data.frame()\n\n# plot replica attempt\ndf |&gt;\n  ggplot(aes(x, y)) +\n  geom_raster(aes(fill = my_colors)) + \n  labs(x = \"Re(z)\", y = \"Im(z)\") +\n  scale_fill_identity() +\n  coord_equal(xlim = c(-2,2), ylim = c(-2,2)) +\n  theme(\n    panel.background = element_rect(fill = \"transparent\", color = NA),\n    plot.background = element_rect(fill = \"transparent\", color = NA),\n    panel.grid = element_blank(),\n    axis.text = element_text(color = \"white\"),\n    axis.title = element_text(color = \"white\")\n  )"
+    "text": "I am a third-year graduate student in the Department of Statistical Science at Baylor University. I moved to Waco after completing my undergraduate studies at Wheaton College, where I played baseball for the Thunder. I proudly hail from Phoenix and will spend every second I can visiting northern Arizona.\nGenerally speaking, you can find me at Grace Church Waco on a given Sunday morning, and I’m always trying to find a way to go back to the Czech Republic to work with Křesťanská Akademie Mladých again.\nCurrently, I am leveraging and adapting unsupervised learnings methods for processing and understanding consumer behavior with respect to water utility usage. My research revolves around turning time series data into actionable insights for water utilities through clustering and anomaly detection."
   },
   {
     "objectID": "posts/daily-digest-bot/index.html#why-i-built-this",
@@ -47,13 +26,6 @@
     "title": "Building a Daily Digest Bot: Automating Substack to PDF",
     "section": "How I Did It: The Technical Stack",
     "text": "How I Did It: The Technical Stack\nBuilding the daily digest was an exercise in stringing together a few very cool tools. The entire workflow is orchestrated in R, connecting a custom feed parser, a third-party print service, and a containerized cloud deployment into a single automated pipeline.\nI wanted a hands-off system that would automatically figure out what I’m subscribed to, find the newest articles, format them elegantly, and email them to me. (If you want to jump straight to the full source code, you can find the complete project repository on my GitHub here: https://github.com/carsonslater/dailydigest\nHere is a breakdown of the four main pillars of the project:\n\n1. Extracting the Subscriptions (The OPML Export)\nThe first challenge was getting a dynamic list of every publication I’m subscribed to. If you are not familiar, most blogs and newsletters have an RSS feed—a standardized way to distribute content behind the scenes. However, Substack doesn’t offer a clean, native way to export your reading list as a compilation of these RSS feeds.\nTo solve this, I used a brilliant JavaScript snippet by Les Orchard, which runs directly in the browser console. It scrapes your Substack reader interface and outputs a standard OPML file.\nOPML (Outline Processor Markup Language) is essentially just a structured address book for RSS feeds. It contains the exact htmlUrl for all of your subscriptions in one tidy XML document. By keeping this OPML file in my project directory (substack_subscriptions.opml), the R script can just parse the file to get the URLs. This means I can add new subscriptions seamlessly in the future by just regenerating the OPML file, without ever touching the core R code.\n# Snippet from daily_digest.R\nlibrary(xml2)\nopml_path &lt;- \"substack_subscriptions.opml\"\nopml &lt;- read_xml(opml_path)\nopml_links &lt;- xml_find_all(opml, \"//outline[@type='rss']\") %&gt;%\n  xml_attr(\"htmlUrl\") %&gt;%\n  keep(~ !is.na(.x))\n\n\n2. Parsing Feeds & Filtering in R\nOnce I had the list of Substack URLs from the OPML file, the script iterates through them to check the corresponding RSS endpoints (/feed).\nUsing the xml2 and lubridate packages in R, the script reaches out to the RSS endpoints for every publication and downloads the raw data of the feed. It then extracts the individual articles (stored as &lt;item&gt; blocks) and filters the results based on the published date (&lt;pubDate&gt;). Instead of downloading everything, it keeps only the posts that have been published within the last 24 hours. This ensures that I only pull the newest content, creating a highly curated, manageable queue of fresh article URLs that are ready for printing.\nrss &lt;- read_xml(rss_url)\nitems &lt;- xml_find_all(rss, \".//item\")\n\nfor (item in items) {\n  pub_date_str &lt;- xml_text(xml_find_first(item, \".//pubDate\"))\n  pub_date &lt;- parse_date_time(pub_date_str, \"a d b Y H M S\")\n  \n  if (!is.na(pub_date) && pub_date &gt;= threshold_date) {\n    post_link &lt;- xml_text(xml_find_first(item, \".//link\"))\n    all_post_urls &lt;- c(all_post_urls, post_link)\n  }\n}\n\n\n3. Rendering via Substackprint.com\nConverting standard HTML into a clean, printable PDF is notoriously tricky—especially when dealing with massive, oversized images and weird formatting across various newsletters. Initially, I experimented with complex typesetting engines locally, but that resulted in massive styling headaches.\nInstead, I decided to lean on Substackprint.com. It’s a fantastic, specialized tool designed specifically to strip away the digital clutter from Substack posts and elegantly compile them into a beautiful, newspaper-style PDF.\nTo automate this without manually copying and pasting URLs every morning, my script passes the filtered lists of Substack URLs directly to Substackprint’s generator using the {chromote} package.\n{chromote} acts as a headless browser—meaning it can run Google Chrome in the background without actually popping up a window on your screen, controlled entirely by code. The script uses this invisible browser to load Substackprint, click the “Multi-Publication mode” button, inject my curated list of URLs into the text box, and click the “Go Analog!” submit button.\nOnce Substackprint finishes rendering the newspaper on the page, the headless browser captures the final layout and uses Chrome’s native built-in PDF generator to save the gorgeous digest directly to my local drive.\n# Snippet from helpers/pdf_generator.R\nlibrary(chromote)\nb &lt;- ChromoteSession$new()\n\n# Navigate to tool and inject URLs\nb$Page$navigate(\"https://substackprint.com/\")\nb$Runtime$evaluate(\"document.getElementById('pub-mode-multi').click();\")\n\nurls_string &lt;- paste(post_urls, collapse = \"\\n\")\nb$Runtime$evaluate(glue(\n  \"document.getElementById('substack-urls').value = `{urls_string}`;\"\n))\n\n# Generate and save PDF\nb$Runtime$evaluate(\"document.querySelector('#substack-form button[type=\\\"submit\\\"]').click();\")\n# ... polling to wait for generation ...\npdf_data &lt;- b$Page$printToPDF(printBackground = TRUE, marginTop = 0, marginBottom = 0)\nwriteBin(jsonlite::base64_dec(pdf_data$data), output_path)\n\n\n4. Automated Email Delivery\nGenerating a beautiful PDF is great, but to make this a true “daily digest,” I needed it to arrive in my inbox automatically while I was waking up.\nFor email delivery, I used the {blastula} package in R. {blastula} makes it incredibly easy to compose an email body, attach the compiled PDF, and securely dispatch it via SMTP.\nSMTP (Simple Mail Transfer Protocol) is the standard protocol that email servers use to send messages across the internet. By plugging in my email provider’s SMTP credentials directly into the script, R can securely send the email attachment just as if I were logging into Gmail myself.\n# Snippet from helpers/email_sender.R\nlibrary(blastula)\n\nemail_obj &lt;- compose_email(\n  body = md(\"Here is your favorite Substack writer's latest work...\"),\n  footer = md(\"Generated via substackprint.com and R automation.\")\n)\nemail_obj &lt;- add_attachment(email_obj, file = pdf_path)\n\nsmtp_send(\n  email = email_obj,\n  from = config$email$from,\n  to = config$email$to,\n  credentials = creds_envvar(...)\n)\n\n\n5. Containerization and Deployment\nA daily digest isn’t very useful if I have to run the R script manually every morning. The final piece of the puzzle was scheduling this automation to run autonomously.\nIf I simply moved my code to another machine, it might fail because that hardware lacks the exact version of packages or software I had on my personal laptop. To solve this, I packed the entire project—the R dependencies, the OPML file, and the core scripts—into a Docker container. You can think of a Docker container as a mini, virtualized computer that wraps up the code and all its exact dependencies so it runs identically anywhere.\nBecause {chromote} requires a headless browser to generate the PDF via Substackprint, the container cannot just run R; it must also have Google Chrome fully installed. When I built the Dockerfile, the trickiest part was ensuring the system dependencies were perfectly configured to run Chrome invisibly without sandboxing errors.\nHere is the crux of the Dockerfile that makes this all possible:\n# Start with a standard base R image setup\nFROM rocker/tidyverse:latest\n\n# Install Linux system dependencies for `{blastula}` (crypto, SSL) and `{xml2}`\nRUN apt-get update && apt-get install -y --no-install-recommends \\\n    wget gnupg libxml2-dev libssl-dev libcurl4-openssl-dev \\\n    zlib1g-dev libfontconfig1 libxt6 && rm -rf /var/lib/apt/lists/*\n\n# Download and install Google Chrome explicitly for `{chromote}` to use\nRUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \\\n    && echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ debian main\" &gt; /etc/apt/sources.list.d/google-chrome.list \\\n    && apt-get update && apt-get install -y --no-install-recommends \\\n    google-chrome-stable && rm -rf /var/lib/apt/lists/*\n\n# Copy project files and install target R packages via setup.R\nWORKDIR /app\nCOPY . .\nRUN Rscript setup.R\n\n# Crucial Environment Variables: Tell `{chromote}` exactly where to find Chrome\n# and disable the sandbox so it can execute smoothly inside a Docker container\nENV CHROMOTE_CHROME=/usr/bin/google-chrome-stable\nENV CHROMOTE_CHROME_ARGS=\"--no-sandbox --disable-dev-shm-usage --headless\"\n\n# Point the container entry command to the target script\nCMD [\"Rscript\", \"daily_digest.R\"]\nThe real “aha!” moment is the bottom section with ENV CHROMOTE_CHROME_ARGS. Because Docker containers isolate their processes, running an entire browser inside them can lead to bizarre memory allocation issues and permission errors. Flags like --no-sandbox and --disable-dev-shm-usage are critical requirements to keep the invisible browser from crashing during the heavy lifting of the PDF generation step.\nFor the actual deployment, I repurposed a spare, headless Mac Mini provided by my job. Rather than running a persistent daemon inside the container, I let the host machine handle the scheduling. I set up the Mac Mini’s local cron tab to run a simple shell task at 6:30 AM every morning that executes docker run on my image. The container spins up, does its job, and gracefully exits. To ensure the Mac Mini doesn’t inadvertently go to sleep and skip the cron job, I keep it perpetually awake using the macOS caffeinate terminal command.\nNow, when the morning alarm finally goes off, the Mac Mini spins up the lightweight container, Chrome renders the PDF via Substackprint in the background, and {blastula} shoots the final product straight to my email inbox. It’s completely hands-off—allowing me to wake up, check my email, and have a beautifully formatted, highly curated newspaper waiting for me!\nI hope you enjoyed this post. If you’re interested in contributing, you can open up a pull request on my GitHub here: https://github.com/carsonslater/dailydigest, or you can send me an email."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Below are some of the projects I have worked on.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles\n\n\n\n\n\n\nNanoparticle Bacterial Inhibition\n\n\nOrdinal Regression\n\n\nGeneralized Linear Mixed Models\n\n\n\nThis paper employs statistical methods to do pairwise comparisons when ANOVA assumptions are egregiously violated.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing Interference with Regression Analysis Techniques\n\n\n\n\n\n\nDynamic Spectrum Access\n\n\nGeneralized Additive Models\n\n\n\nThis work proposes using regression analysis to predict aggregate interference in next-generation Dynamic Spectrum Access (DSA) systems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMo(Wa)²TER Introduction to Data Science Course Material\n\n\n\n\n\n\nData Science\n\n\nR/RStudio\n\n\nWastewater Treatment\n\n\n\nWe used problems in water and wastewater treatment to create a data science course.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCobalt Theme for Positron\n\n\n\n\n\n\nPositron\n\n\n\nA dark theme based on the Cobalt RStudio theme for Positron (and VS Code).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngiftR\n\n\n\n\n\n\nR Package\n\n\nSatire\n\n\n\nA white elephant gift exchange facilitator.\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "cv.html",
@@ -117,5 +89,201 @@
     "title": "Curriculum Vitae",
     "section": "",
     "text": "Jun 2023–Aug 2023\n\nBuilt a blog to keep supporters updated on mission work.\nTaught English and sports in schools and at camps; supported local CB churches.\nTrained incoming short-term mission teams."
+  },
+  {
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "Archive",
+    "section": "",
+    "text": "This page is a repository for my graduate school coursework. Some of these assignments are more polished than others, and some may not reflect the cleanest or most correct work I would produce now, but I am happy to host them here as living proof of my studies.\nNote that I did not draft these assignments under the impression that I would host them on the Internet forever. Have mercy on me when you find my mistakes. (Also, if you’re on this page, what are you doing?!)"
+  },
+  {
+    "objectID": "archive/index.html#fall-2023",
+    "href": "archive/index.html#fall-2023",
+    "title": "Archive",
+    "section": "Fall 2023",
+    "text": "Fall 2023\n\nMethods I\nComputational Statistics I\nStatistical Theory I"
+  },
+  {
+    "objectID": "archive/index.html#spring-2024",
+    "href": "archive/index.html#spring-2024",
+    "title": "Archive",
+    "section": "Spring 2024",
+    "text": "Spring 2024\n\nMethods II\nComputational Statistics II\nStatistical Theory II"
+  },
+  {
+    "objectID": "archive/index.html#summer-2024",
+    "href": "archive/index.html#summer-2024",
+    "title": "Archive",
+    "section": "Summer 2024",
+    "text": "Summer 2024\n\nMultivariate Analysis"
+  },
+  {
+    "objectID": "archive/index.html#fall-2024",
+    "href": "archive/index.html#fall-2024",
+    "title": "Archive",
+    "section": "Fall 2024",
+    "text": "Fall 2024\n\nBayesian Methods\nSurvival Analysis"
+  },
+  {
+    "objectID": "archive/index.html#summer-2025",
+    "href": "archive/index.html#summer-2025",
+    "title": "Archive",
+    "section": "Summer 2025",
+    "text": "Summer 2025\n\nCategorical Data Analysis\nAdvanced Data-Driven Methods\nBayesian Theory"
+  },
+  {
+    "objectID": "archive/index.html#fall-2025",
+    "href": "archive/index.html#fall-2025",
+    "title": "Archive",
+    "section": "Fall 2025",
+    "text": "Fall 2025\n\nAdvanced Inference\nSpatial Statistics"
+  },
+  {
+    "objectID": "archive/index.html#spring-2026",
+    "href": "archive/index.html#spring-2026",
+    "title": "Archive",
+    "section": "Spring 2026",
+    "text": "Spring 2026\n\nDeep Learning\nStatistical Bioinformatics"
+  },
+  {
+    "objectID": "archive/courses/categorical-data-analysis.html",
+    "href": "archive/courses/categorical-data-analysis.html",
+    "title": "Categorical Data Analysis",
+    "section": "",
+    "text": "Back to Archive\n\nPresentation\nReport 1.3\nReport 1.6\nReport 1.7\nReport 1.8\nReport 1.9\nReport 1.10\nReport 1.11\nReport 1.12\nReport 2.4\nReport 2.5\nReport 2.7\nReport 2.11\nReport 2.13\nReport 2.15\nReport 3.1\nReport 3.3\nReport 3.4\nReport 3.6\nReport 3.7\nReport 3.9\nReport 3.11\nReport 3.12\nReport 4.3\nReport 4.4\nReport 4.5\nReport 4.7\nReport 6.2\nReport 6.3"
+  },
+  {
+    "objectID": "archive/courses/theory-2.html",
+    "href": "archive/courses/theory-2.html",
+    "title": "Statistical Theory II",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nHomework 4\nHomework 5\nHomework 6\nHomework 7\nHomework 8\nExam 2\nFinal"
+  },
+  {
+    "objectID": "archive/courses/spatial-statistics.html",
+    "href": "archive/courses/spatial-statistics.html",
+    "title": "Spatial Statistics",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nHomework 5\nMidterm\nReport"
+  },
+  {
+    "objectID": "archive/courses/bayesian-methods.html",
+    "href": "archive/courses/bayesian-methods.html",
+    "title": "Bayesian Methods",
+    "section": "",
+    "text": "Back to Archive\n\nReport 1.1\nReport 1.2\nReport 1.4\nReport 1.5\nReport 1.6\nReport 1.7\nReport 2.2\nReport 3.3\nReport 3.4\nReport 4.1\nReport 4.4\nReport 4.5\nReport 4.6\nReport 4.7\nReport 4.8\nReport 4.15\nReport 5.2\nLaplace Approximation"
+  },
+  {
+    "objectID": "archive/courses/advanced-inference.html",
+    "href": "archive/courses/advanced-inference.html",
+    "title": "Advanced Inference",
+    "section": "",
+    "text": "Back to Archive\n\nReport 1.1\nReport 1.2\nReport 1.3\nReport 1.4\nReport 1.5\nReport 1.6\nReport 1.7\nReport 1.8\nReport 1.9\nReport 1.10\nReport 1.11\nReport 1.12\nReport 1.13\nReport 1.14\nReport 1.15\nReport 1.16\nReport 1.17\nReport 1.20\nReport 1.21\nReport 2.1\nReport 2.2\nReport 2.3\nReport 2.7\nReport 2.8\nReport 2.9\nReport 2.10\nReport 2.11\nReport 2.14"
+  },
+  {
+    "objectID": "archive/courses/multivariate.html",
+    "href": "archive/courses/multivariate.html",
+    "title": "Multivariate Analysis",
+    "section": "",
+    "text": "Back to Archive\n\nProblem Set 1\nProblem Set 2\nGallaugher HW 1\nGallaugher HW 2\nIris LDA\nIris LDA 2\nBanknote PCA LDA"
+  },
+  {
+    "objectID": "archive/courses/bayesian-theory.html",
+    "href": "archive/courses/bayesian-theory.html",
+    "title": "Bayesian Theory",
+    "section": "",
+    "text": "Back to Archive\n\nReport 6.1\nReport 6.2\nReport 6.4\nReport 6.5\nReport 6.6\nReport 6.7\nReport 7.1\nReport 7.2\nReport 7.3\nReport 7.4\nReport 7.5\nReport 7.6\nReport 7.9\nReport 8.7\nReport 9.1\nReport 9.2\nReport 9.3\nReport 9.4\nReport 10.1"
+  },
+  {
+    "objectID": "archive/courses/computational-1.html",
+    "href": "archive/courses/computational-1.html",
+    "title": "Computational Statistics I",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 1\nHomework 2\nHomework 3\nHomework 5\nHomework 6"
+  },
+  {
+    "objectID": "archive/courses/statistical-bioinformatics.html",
+    "href": "archive/courses/statistical-bioinformatics.html",
+    "title": "Statistical Bioinformatics",
+    "section": "",
+    "text": "Back to Archive\n\nReport 1\nReport 2\nReport 3\nReport 4\nReport 5"
+  },
+  {
+    "objectID": "archive/courses/methods-1.html",
+    "href": "archive/courses/methods-1.html",
+    "title": "Methods I",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 0\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nHomework 5\nHomework 6"
+  },
+  {
+    "objectID": "archive/courses/advanced-data-driven.html",
+    "href": "archive/courses/advanced-data-driven.html",
+    "title": "Advanced Data-Driven Methods",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nHomework 5\nMidterm\nReport"
+  },
+  {
+    "objectID": "archive/courses/theory-1.html",
+    "href": "archive/courses/theory-1.html",
+    "title": "Statistical Theory I",
+    "section": "",
+    "text": "Back to Archive\n\nQuiz 1\nQuiz 2"
+  },
+  {
+    "objectID": "archive/courses/deep-learning.html",
+    "href": "archive/courses/deep-learning.html",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "Back to Archive\n\nExercise 1\nExercise 2\nExercise 3\nExercise 4\nExercise 5"
+  },
+  {
+    "objectID": "archive/courses/survival-analysis.html",
+    "href": "archive/courses/survival-analysis.html",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "Back to Archive\n\nReport 1.1\nReport 1.2\nReport 1.3\nReport 1.4\nReport 1.5\nReport 1.6\nReport 1.7\nReport 1.8\nReport 1.9\nReport 1.12\nReport 1.15\nReport 1.16\nReport 1.17\nReport 1.18\nReport 1.21\nReport 1.22\nReport 1.25\nReport 1.26\nReport 1.27\nReport 1.29\nReport 1.30\nReport 2.2\nReport 2.3\nReport 2.4\nReport 2.5\nReport 2.6\nReport 2.16\nReport 2.19\nReport 2.20\nReport 3.2\nReport 3.3\nReport 3.4\nReport 3.5\nReport 3.6\nReport 3.7\nReport 4.4"
+  },
+  {
+    "objectID": "archive/courses/computational-2.html",
+    "href": "archive/courses/computational-2.html",
+    "title": "Computational Statistics II",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 7\nHomework 8\nHomework 9\nHomework 10\nHomework 11\nHomework 12\nHomework 13\nHomework 14"
+  },
+  {
+    "objectID": "archive/courses/methods-2.html",
+    "href": "archive/courses/methods-2.html",
+    "title": "Methods II",
+    "section": "",
+    "text": "Back to Archive\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nHomework 5"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBuilding a Daily Digest Bot: Automating Substack to PDF\n\n\n\nR\n\nAutomation\n\nDocker\n\n\n\nHow I built an automated pipeline in R to curate, format, and deliver my favorite Substack newsletters as a daily printable newspaper.\n\n\n\n\n\nFeb 20, 2026\n\n\nCarson Slater\n\n\n\n\n\n\n\n\n\n\n\n\nComing Soon\n\n\n\nnews\n\n\n\nStay tuned for more content!\n\n\n\n\n\nNov 23, 2025\n\n\nCarson Slater\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Below are some of the projects I have worked on.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing the Effects of Surface-Stabilized Zero-Valent Iron Nanoparticles\n\n\n\nNanoparticle Bacterial Inhibition\n\nOrdinal Regression\n\nGeneralized Linear Mixed Models\n\n\n\nThis paper employs statistical methods to do pairwise comparisons when ANOVA assumptions are egregiously violated.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssessing Interference with Regression Analysis Techniques\n\n\n\nDynamic Spectrum Access\n\nGeneralized Additive Models\n\n\n\nThis work proposes using regression analysis to predict aggregate interference in next-generation Dynamic Spectrum Access (DSA) systems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMo(Wa)²TER Introduction to Data Science Course Material\n\n\n\nData Science\n\nR/RStudio\n\nWastewater Treatment\n\n\n\nWe used problems in water and wastewater treatment to create a data science course.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCobalt Theme for Positron\n\n\n\nPositron\n\n\n\nA dark theme based on the Cobalt RStudio theme for Positron (and VS Code).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngiftR\n\n\n\nR Package\n\nSatire\n\n\n\nA white elephant gift exchange facilitator.\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome-post/index.html",
+    "href": "posts/welcome-post/index.html",
+    "title": "Coming Soon",
+    "section": "",
+    "text": "In the meantime, enjoy this cool 4D graphic I made a few years ago for a class I was in…"
+  },
+  {
+    "objectID": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
+    "href": "posts/welcome-post/index.html#visualizing-complex-functions-with-domain-coloring",
+    "title": "Coming Soon",
+    "section": "Visualizing Complex Functions with Domain Coloring",
+    "text": "Visualizing Complex Functions with Domain Coloring\nOne of the challenges of working with complex-valued functions is that they’re difficult to visualize. For a real-valued function \\(f: \\mathbb{R} \\to \\mathbb{R}\\), we can easily plot it on a 2D graph. But for a complex function \\(f: \\mathbb{C} \\to \\mathbb{C}\\), both the input and output are two-dimensional, requiring four dimensions total to represent fully.\nDomain coloring provides an elegant solution: we plot the domain (the \\(xy\\)-plane representing \\(\\mathbb{C} \\cong \\mathbb{R}^2\\)) and use color to encode information about the output \\(f(z)\\). Specifically:\n\nHue represents the argument (angle) of \\(f(z)\\): \\(\\text{Arg}(f(z)) \\in (-\\pi, \\pi]\\)\nLightness represents the modulus (magnitude) of \\(f(z)\\): \\(|f(z)|\\)\n\nBelow, I’ve visualized the function:\n\\[f(z) = \\frac{z^2 + 1}{z^2 - 1}\\]\nThis function has two roots at \\(z = \\pm i\\) (where the numerator equals zero) and two poles at \\(z = \\pm 1\\) (where the denominator equals zero). In the visualization, you can identify these special points by observing where colors converge or diverge dramatically.\n\n\nCode\n# functions\nmodulus &lt;- function(z) Re(sqrt(z * Conj(z)))\nf &lt;- function(z) (z^2 + 1)/(z^2 - 1)\nrad2deg &lt;- function(rad, rotate = 0) ((rad + rotate) * 360/(2*pi)) %% 360\n\n# definitions\n# boundaries\nL &lt;- -2\nU &lt;- 2\n# making mesh\ndomain &lt;- seq(L, U, length.out = 1001)\n\nmesh &lt;- expand.grid(domain, domain) |&gt; \n  mutate(\"x\" = Var1, \n         \"y\" = Var2) |&gt; \n  select(x, y)\n\n# color mapping components\nz &lt;- complex(real = mesh$x, imaginary = mesh$y)\n\nfz &lt;- z |&gt; f()\n\nmod_fz &lt;- fz |&gt; modulus()\n\n# I ended using the second one from the Wikipedia page \n# and I added a constant to shift the color, as well as\n# a scale of 100 (a = 0.4 too)\n\na &lt;- 0.4\nell1 &lt;- (2/pi)*atan(mod_fz) + 65\nell2 &lt;- (mod_fz^a/(mod_fz^a + 1))/10 + 65 \nell3 &lt;- 100*mod_fz^a/(mod_fz^a + 1) + 25 # used this one \n\n# used saturation of 80\nmy_colors &lt;- Arg(fz) |&gt;\n  rad2deg() |&gt;\n  cbind(80, ell3) |&gt; \n  farver::encode_colour(from = \"hsl\")\n\ndf &lt;- cbind(mesh, my_colors) |&gt;\n  as.data.frame()\n\n# plot replica attempt\ndf |&gt;\n  ggplot(aes(x, y)) +\n  geom_raster(aes(fill = my_colors)) + \n  labs(x = \"Re(z)\", y = \"Im(z)\") +\n  scale_fill_identity() +\n  coord_equal(xlim = c(-2,2), ylim = c(-2,2)) +\n  theme(\n    panel.background = element_rect(fill = \"transparent\", color = NA),\n    plot.background = element_rect(fill = \"transparent\", color = NA),\n    panel.grid = element_blank(),\n    axis.text = element_text(color = \"white\"),\n    axis.title = element_text(color = \"white\")\n  )"
   }
 ]

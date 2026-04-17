@@ -1,27 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carsonslater.github.io/blog.html</loc>
-    <lastmod>2025-11-24T02:41:46.300Z</lastmod>
-  </url>
-  <url>
     <loc>https://carsonslater.github.io/index.html</loc>
-    <lastmod>2026-03-04T16:23:21.065Z</lastmod>
-  </url>
-  <url>
-    <loc>https://carsonslater.github.io/posts/welcome-post/index.html</loc>
-    <lastmod>2025-11-26T16:31:12.520Z</lastmod>
+    <lastmod>2026-04-17T05:13:41.903Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/posts/daily-digest-bot/index.html</loc>
-    <lastmod>2026-02-23T20:49:10.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://carsonslater.github.io/projects.html</loc>
-    <lastmod>2025-11-29T21:11:02.843Z</lastmod>
+    <lastmod>2026-04-17T05:13:41.905Z</lastmod>
   </url>
   <url>
     <loc>https://carsonslater.github.io/cv.html</loc>
-    <lastmod>2026-03-04T16:14:35.199Z</lastmod>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/index.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/categorical-data-analysis.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/theory-2.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/spatial-statistics.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/bayesian-methods.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/advanced-inference.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/multivariate.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/bayesian-theory.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/computational-1.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/statistical-bioinformatics.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/methods-1.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/advanced-data-driven.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/theory-1.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/deep-learning.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/survival-analysis.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/computational-2.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/archive/courses/methods-2.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/blog.html</loc>
+    <lastmod>2026-04-17T05:13:41.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/projects.html</loc>
+    <lastmod>2026-04-17T05:13:41.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://carsonslater.github.io/posts/welcome-post/index.html</loc>
+    <lastmod>2026-04-17T05:13:41.905Z</lastmod>
   </url>
 </urlset>
