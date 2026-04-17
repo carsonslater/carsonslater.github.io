@@ -1,0 +1,12 @@
+---
+title: "Deep Learning"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Exercise 1](../../Homeworks_GradSchool/Deep_Learning/ex1_report.pdf)
+- [Exercise 2](../../Homeworks_GradSchool/Deep_Learning/ex2_report.pdf)
+- [Exercise 3](../../Homeworks_GradSchool/Deep_Learning/Slater_Exercise3.html)
+- [Exercise 4](../../Homeworks_GradSchool/Deep_Learning/Slater_CNN_Implementations.pdf)
+- [Exercise 5](../../Homeworks_GradSchool/Deep_Learning/Slater_Ex5_CNN_Implementations.pdf)

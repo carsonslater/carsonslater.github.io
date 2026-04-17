@@ -1,0 +1,14 @@
+---
+title: "Multivariate Analysis"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Problem Set 1](../../Homeworks_GradSchool/Mutlivariate/Young_ProblemSet1.pdf)
+- [Problem Set 2](../../Homeworks_GradSchool/Mutlivariate/Young_ProblemSet2.pdf)
+- [Gallaugher HW 1](../../Homeworks_GradSchool/Mutlivariate/Slater_1.pdf)
+- [Gallaugher HW 2](../../Homeworks_GradSchool/Mutlivariate/Slater_2.pdf)
+- [Iris LDA](../../Homeworks_GradSchool/Mutlivariate/Iris_LDA.pdf)
+- [Iris LDA 2](../../Homeworks_GradSchool/Mutlivariate/Iris_LDA2.pdf)
+- [Banknote PCA LDA](../../Homeworks_GradSchool/Mutlivariate/banknote_pca_lda.pdf)

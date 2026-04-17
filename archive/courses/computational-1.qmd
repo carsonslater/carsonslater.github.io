@@ -1,0 +1,12 @@
+---
+title: "Computational Statistics I"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 1](../../Homeworks_GradSchool/Computational1/slater-1.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Computational1/slater-2.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Computational1/slater-3.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Computational1/slater-5.pdf)
+- [Homework 6](../../Homeworks_GradSchool/Computational1/slater-6.pdf)

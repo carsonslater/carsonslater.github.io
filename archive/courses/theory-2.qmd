@@ -1,0 +1,18 @@
+---
+title: "Statistical Theory II"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 1](../../Homeworks_GradSchool/Theory2/Theory_2_Homework_1.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Theory2/Theory_2_Homework_2.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Theory2/Theory_2_Homework_3.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Theory2/Theory_2_Homework_4.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Theory2/slater_hw4.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Theory2/slater-hw5.pdf)
+- [Homework 6](../../Homeworks_GradSchool/Theory2/slater_hw6.pdf)
+- [Homework 7](../../Homeworks_GradSchool/Theory2/slater_hw7.pdf)
+- [Homework 8](../../Homeworks_GradSchool/Theory2/slater_hw8.pdf)
+- [Exam 2](../../Homeworks_GradSchool/Theory2/Theory%202%20Exam%202.pdf)
+- [Final](../../Homeworks_GradSchool/Theory2/Theory%202%20Final.pdf)

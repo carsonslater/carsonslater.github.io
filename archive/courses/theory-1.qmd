@@ -1,0 +1,9 @@
+---
+title: "Statistical Theory I"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Quiz 1](../../Homeworks_GradSchool/Theory1/Theory_1_Quiz_1.pdf)
+- [Quiz 2](../../Homeworks_GradSchool/Theory1/Theory_1_Quiz_2.pdf)

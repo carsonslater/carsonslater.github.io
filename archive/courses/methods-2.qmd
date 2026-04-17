@@ -1,0 +1,12 @@
+---
+title: "Methods II"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 1](../../Homeworks_GradSchool/Methods2/Methods_2_Homework_1.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Methods2/Methods_2_Homework_2.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Methods2/Methods_2_Homework_3.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Methods2/Methods_2_Homework_4.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Methods2/Methods_2_Homework_5.pdf)

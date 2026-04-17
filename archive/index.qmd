@@ -1,0 +1,45 @@
+---
+title: "Archive"
+toc: false
+---
+
+This page is a repository for my graduate school coursework. Some of these assignments are more polished than others, and some may not reflect the cleanest or most correct work I would produce now, but I am happy to host them here as living proof of my studies.
+
+*Note that I did not draft these assignments under the impression that I would host them on the Internet forever.* Have mercy on me when you find my mistakes. (Also, if you're on this page, what are you doing?!)
+
+## Fall 2023
+
+- [Methods I](courses/methods-1.qmd)
+- [Computational Statistics I](courses/computational-1.qmd)
+- [Statistical Theory I](courses/theory-1.qmd)
+
+## Spring 2024
+
+- [Methods II](courses/methods-2.qmd)
+- [Computational Statistics II](courses/computational-2.qmd)
+- [Statistical Theory II](courses/theory-2.qmd)
+
+## Summer 2024
+
+- [Multivariate Analysis](courses/multivariate.qmd)
+
+## Fall 2024
+
+- [Bayesian Methods](courses/bayesian-methods.qmd)
+- [Survival Analysis](courses/survival-analysis.qmd)
+
+## Summer 2025
+
+- [Categorical Data Analysis](courses/categorical-data-analysis.qmd)
+- [Advanced Data-Driven Methods](courses/advanced-data-driven.qmd)
+- [Bayesian Theory](courses/bayesian-theory.qmd)
+
+## Fall 2025
+
+- [Advanced Inference](courses/advanced-inference.qmd)
+- [Spatial Statistics](courses/spatial-statistics.qmd)
+
+## Spring 2026
+
+- [Deep Learning](courses/deep-learning.qmd)
+- [Statistical Bioinformatics](courses/statistical-bioinformatics.qmd)

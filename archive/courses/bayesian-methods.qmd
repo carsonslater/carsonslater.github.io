@@ -1,0 +1,25 @@
+---
+title: "Bayesian Methods"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Report 1.1](../../Homeworks_GradSchool/Bayesian_Methods/Report1.1_Bayes.pdf)
+- [Report 1.2](../../Homeworks_GradSchool/Bayesian_Methods/Report1.2_Bayes.pdf)
+- [Report 1.4](../../Homeworks_GradSchool/Bayesian_Methods/Report1.4_Bayes.pdf)
+- [Report 1.5](../../Homeworks_GradSchool/Bayesian_Methods/Report1.5_Bayes.pdf)
+- [Report 1.6](../../Homeworks_GradSchool/Bayesian_Methods/Report1.6_Bayes.pdf)
+- [Report 1.7](../../Homeworks_GradSchool/Bayesian_Methods/Report1.7_Bayes.pdf)
+- [Report 2.2](../../Homeworks_GradSchool/Bayesian_Methods/Report2.2_Bayes.pdf)
+- [Report 3.3](../../Homeworks_GradSchool/Bayesian_Methods/Report3.3_Bayes.pdf)
+- [Report 3.4](../../Homeworks_GradSchool/Bayesian_Methods/Report3.4_Bayes.pdf)
+- [Report 4.1](../../Homeworks_GradSchool/Bayesian_Methods/Report4.1_Bayes.pdf)
+- [Report 4.4](../../Homeworks_GradSchool/Bayesian_Methods/Report4.4_Bayes.pdf)
+- [Report 4.5](../../Homeworks_GradSchool/Bayesian_Methods/Report4.5_Bayes.pdf)
+- [Report 4.6](../../Homeworks_GradSchool/Bayesian_Methods/Report4.6_Bayes.pdf)
+- [Report 4.7](../../Homeworks_GradSchool/Bayesian_Methods/Report4.7_Bayes.pdf)
+- [Report 4.8](../../Homeworks_GradSchool/Bayesian_Methods/Report4.8_Bayes.pdf)
+- [Report 4.15](../../Homeworks_GradSchool/Bayesian_Methods/Report4.15_Bayes.pdf)
+- [Report 5.2](../../Homeworks_GradSchool/Bayesian_Methods/Report5.2_Bayes.pdf)
+- [Laplace Approximation](../../Homeworks_GradSchool/Bayesian_Methods/Laplace_Approx.pdf)

@@ -24,4 +24,4 @@ I am a third-year graduate student in the [Department of Statistical Science](ht
 
 Generally speaking, you can find me at [Grace Church Waco](https://gracewaco.com) on a given Sunday morning, and I'm always trying to find a way to go back to the Czech Republic to work with [Křesťanská Akademie Mladých](https://kam.cz) again.
 
-Currently, I am learning many new statistical methods that will enable me to build predictive models, understand stochastic phenomena, and discover associations in our world.
+Currently, I am leveraging and adapting unsupervised learnings methods for processing and understanding consumer behavior with respect to water utility usage. My research revolves around turning time series data into actionable insights for water utilities through clustering and anomaly detection.

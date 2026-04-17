@@ -1,0 +1,14 @@
+---
+title: "Methods I"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 0](../../Homeworks_GradSchool/Methods1/Slater_HW_0.pdf)
+- [Homework 1](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_1.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_2.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_3.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_4.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_5.pdf)
+- [Homework 6](../../Homeworks_GradSchool/Methods1/Methods_1_Homework_6.pdf)

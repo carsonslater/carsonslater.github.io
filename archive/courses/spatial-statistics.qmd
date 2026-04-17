@@ -1,0 +1,14 @@
+---
+title: "Spatial Statistics"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 1](../../Homeworks_GradSchool/Spatial_Statistics/Slater_HW1_Spatial.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Spatial_Statistics/Slater_HW2_Spatial.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Spatial_Statistics/Slater_HW3_Spatial.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Spatial_Statistics/Slater_HW4_Spatial.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Spatial_Statistics/Slater_HW5_Spatial.pdf)
+- [Midterm](../../Homeworks_GradSchool/Spatial_Statistics/Spatial_Midterm.pdf)
+- [Report](../../Homeworks_GradSchool/Spatial_Statistics/Slater_Spatial_Report.pdf)

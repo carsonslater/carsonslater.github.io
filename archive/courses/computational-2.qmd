@@ -1,0 +1,15 @@
+---
+title: "Computational Statistics II"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 7](../../Homeworks_GradSchool/Computational2/slater-7.pdf)
+- [Homework 8](../../Homeworks_GradSchool/Computational2/slater-8.pdf)
+- [Homework 9](../../Homeworks_GradSchool/Computational2/slater-9.pdf)
+- [Homework 10](../../Homeworks_GradSchool/Computational2/slater-10.pdf)
+- [Homework 11](../../Homeworks_GradSchool/Computational2/slater-11.pdf)
+- [Homework 12](../../Homeworks_GradSchool/Computational2/slater-12.pdf)
+- [Homework 13](../../Homeworks_GradSchool/Computational2/slater-13.pdf)
+- [Homework 14](../../Homeworks_GradSchool/Computational2/slater-14.pdf)

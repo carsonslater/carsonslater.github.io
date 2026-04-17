@@ -1,0 +1,26 @@
+---
+title: "Bayesian Theory"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Report 6.1](../../Homeworks_GradSchool/Bayesian_Theory/Report6.1_Bayes.pdf)
+- [Report 6.2](../../Homeworks_GradSchool/Bayesian_Theory/Report6.2_Bayes.pdf)
+- [Report 6.4](../../Homeworks_GradSchool/Bayesian_Theory/Report6.4_Bayes.pdf)
+- [Report 6.5](../../Homeworks_GradSchool/Bayesian_Theory/Report6.5_Bayes.pdf)
+- [Report 6.6](../../Homeworks_GradSchool/Bayesian_Theory/Report6.6_Bayes.pdf)
+- [Report 6.7](../../Homeworks_GradSchool/Bayesian_Theory/Report6.7_Bayes.pdf)
+- [Report 7.1](../../Homeworks_GradSchool/Bayesian_Theory/Report7.1_Bayes.pdf)
+- [Report 7.2](../../Homeworks_GradSchool/Bayesian_Theory/Report7.2_Bayes.pdf)
+- [Report 7.3](../../Homeworks_GradSchool/Bayesian_Theory/Report7.3_Bayes.pdf)
+- [Report 7.4](../../Homeworks_GradSchool/Bayesian_Theory/Report7.4_Bayes.pdf)
+- [Report 7.5](../../Homeworks_GradSchool/Bayesian_Theory/Report7.5_Bayes.pdf)
+- [Report 7.6](../../Homeworks_GradSchool/Bayesian_Theory/Report7.6_Bayes.pdf)
+- [Report 7.9](../../Homeworks_GradSchool/Bayesian_Theory/Report7.9_Bayes.pdf)
+- [Report 8.7](../../Homeworks_GradSchool/Bayesian_Theory/Report8.7_Bayes.pdf)
+- [Report 9.1](../../Homeworks_GradSchool/Bayesian_Theory/Report9.1_Bayes.pdf)
+- [Report 9.2](../../Homeworks_GradSchool/Bayesian_Theory/Report9.2_Bayes.pdf)
+- [Report 9.3](../../Homeworks_GradSchool/Bayesian_Theory/Report9.3_Bayes.pdf)
+- [Report 9.4](../../Homeworks_GradSchool/Bayesian_Theory/Report9.4_Bayes.pdf)
+- [Report 10.1](../../Homeworks_GradSchool/Bayesian_Theory/Report10.1_Bayes.pdf)

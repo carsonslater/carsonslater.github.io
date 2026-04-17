@@ -1,0 +1,14 @@
+---
+title: "Advanced Data-Driven Methods"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Homework 1](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_HW1_AdvData.pdf)
+- [Homework 2](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_HW2_AdvData.pdf)
+- [Homework 3](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_HW3_AdvData.pdf)
+- [Homework 4](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_HW4_AdvData.pdf)
+- [Homework 5](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_HW5_AdvData.pdf)
+- [Midterm](../../Homeworks_GradSchool/Adv_Data_Driven/Slater_Midterm_AdvData.pdf)
+- [Report](../../Homeworks_GradSchool/Adv_Data_Driven/Avd_Data_Report.pdf)

@@ -1,0 +1,36 @@
+---
+title: "Categorical Data Analysis"
+toc: false
+---
+
+[Back to Archive](../index.qmd)
+
+- [Presentation](../../Homeworks_GradSchool/Categorical_Data_Analyis/Presentation_Categorical.html)
+- [Report 1.3](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.3_Categorical.pdf)
+- [Report 1.6](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.6_Categorical.pdf)
+- [Report 1.7](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.7_Categorical.pdf)
+- [Report 1.8](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.8_Categorical.pdf)
+- [Report 1.9](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.9_Categorical.pdf)
+- [Report 1.10](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.10_Categorical.pdf)
+- [Report 1.11](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.11_Categorical.pdf)
+- [Report 1.12](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report1.12_Categorical.pdf)
+- [Report 2.4](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.4_Categorical.pdf)
+- [Report 2.5](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.5_Categorical.pdf)
+- [Report 2.7](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.7_Categorical.pdf)
+- [Report 2.11](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.11_Categorical.pdf)
+- [Report 2.13](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.13_Categorical.pdf)
+- [Report 2.15](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report2.15_Categorical.pdf)
+- [Report 3.1](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.1_Categorical.pdf)
+- [Report 3.3](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.3_Categorical.pdf)
+- [Report 3.4](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.4_Categorical.pdf)
+- [Report 3.6](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.6_Categorical.pdf)
+- [Report 3.7](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.7_Categorical.pdf)
+- [Report 3.9](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.9_Categorical.pdf)
+- [Report 3.11](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.11_Categorical.pdf)
+- [Report 3.12](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report3.12_Categorical.pdf)
+- [Report 4.3](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report4.3_Categorical.pdf)
+- [Report 4.4](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report4.4_Categorical.pdf)
+- [Report 4.5](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report4.5_Categorical.pdf)
+- [Report 4.7](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report4.7_Categorical.pdf)
+- [Report 6.2](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report6.2_Categorical.pdf)
+- [Report 6.3](../../Homeworks_GradSchool/Categorical_Data_Analyis/Report6.3_Categorical.pdf)

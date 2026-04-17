@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - Homeworks_GradSchool/**
 
 publish:
   gh-pages:
@@ -26,8 +28,10 @@ website:
         text: Projects
       - href: blog.qmd
         text: Blog
-      - href: cv.qmd
+      - href: files/slater-cv.pdf
         text: CV
+      - href: archive/index.qmd
+        text: Archive
     right:
       - icon: github
         href: https://github.com/carsonslater
